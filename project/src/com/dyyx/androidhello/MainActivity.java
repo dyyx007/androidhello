@@ -1,5 +1,8 @@
 package com.dyyx.androidhello;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +22,15 @@ public class MainActivity extends Activity {
 
 	private Button btn;
 	
+	private static Map<String,Class> activityMap = new HashMap<String,Class>();
+	
+	static{
+		
+		activityMap.put("listview", ListViewActivity.class);
+		activityMap.put("gridview", GridViewActivity.class);
+		activityMap.put("systeminfo", SystemInfoActivity.class);
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,10 +47,15 @@ public class MainActivity extends Activity {
 		btn.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v) {
             	String tmp = spinner.getSelectedItem().toString();
+            	if(tmp==null){           		
+            		tmp = "";
+            	}
             	textview.setText(tmp);
+            	String key = tmp.toLowerCase();
+            	Class activityClass = activityMap.get(key);
             	
-            	if("ListView".equalsIgnoreCase(tmp)){
-            		Intent i = new Intent(MainActivity.this,com.dyyx.androidhello.ListViewActivity.class); 
+            	if(activityClass!=null){
+            		Intent i = new Intent(MainActivity.this,activityClass); 
             		 MainActivity.this.startActivity(i); 
             		return;
             	}

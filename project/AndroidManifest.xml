@@ -7,6 +7,13 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="22" />
+    
+    <supports-screens
+    android:smallScreens="true"
+    android:normalScreens="true"
+    android:largeScreens="true"
+    android:resizeable="true"
+    android:anyDensity="true" />
 
     <application
         android:name="com.dyyx.androidhello.HelloApp"
@@ -41,8 +48,11 @@
         </activity>
         
        <activity android:name="com.dyyx.androidhello.ListViewActivity"/>
-        
+       <activity android:name="com.dyyx.androidhello.GridViewActivity"/>
+       <activity android:name="com.dyyx.androidhello.SystemInfoActivity"/>
         
     </application>
+    
+    
 
 </manifest>

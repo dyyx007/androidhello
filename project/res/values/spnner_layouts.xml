@@ -7,7 +7,9 @@
     <item>RelativeLayout</item>  
     <item>AbsoluteLayout</item> 
     <item>TableLayout2</item>  
-    <item>ListView</item>  
+    <item>ListView</item> 
+    <item>GridView</item>  
+    <item>SystemInfo</item>  
 </string-array> 
 
 </resources>

@@ -1,3 +1,67 @@
+20151201
+
+
+gridview
+
+android.content.ActivityNotFoundException: 
+Unable to find explicit activity class {com.dyyx.androidhello/com.dyyx.androidhello.GridViewActivity};
+have you declared this activity in your AndroidManifest.xml?
+
+ java.lang.RuntimeException: Binary XML file line #9: You must supply a layout_height attribute.
+
+设置 高度  android:layout_height="100dp"
+图片压扁，如何让图片等比例缩放呢？
+
+ImageView属性详解
+http://407827531.iteye.com/blog/1117199
+
+ <ImageView android:id="@+id/img03"  
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content"
+         android:adjustViewBounds="true"
+         android:maxHeight="200dp"
+         android:maxWidth="200dp"
+         android:src="@drawable/mm03"  
+
+
+
+SystemInfoActivity
+获取屏幕密度 宽高 等信息 
+
+[2015-12-01 10:08:16 - androidhello] Starting activity com.dyyx.androidhello.MainActivity on device emulator-5554
+[2015-12-01 10:08:16 - androidhello] ActivityManager: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.dyyx.androidhello/.MainActivity }
+
+
+PPI = Pixels per inch，每英寸上的像素数,即 "像素密度"
+dpi   dots per inch
+手机上 ppi = dpi
+
+
+
+
+xhdpi: 2.0 hdpi: 1.5 mdpi: 1.0 (baseline) ldpi: 0.75
+
+PPI = √（长度像素数² + 宽度像素数²） / 屏幕对角线英寸数
+
+dp：Density-independent pixels，以160PPI屏幕为标准，则1dp=1px，
+
+PX = density * DP
+
+红米2a  (HM 2A )
+4.7英寸    1280x720像素  
+1英寸=2.54cm
+
+ 
+	
+DisplayMetrics metric = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metric);
+
+ 宽 720px 高 1280px
+ 宽 2英寸 高  4英寸 对角线长度 4.47英寸  屏幕密度 320 
+
+
+
+
 
 
 20151130
