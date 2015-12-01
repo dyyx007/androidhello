@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+     <Button
+          android:id="@+id/btnmiddle"
+          android:text="MiddleButton"
+          android:layout_width="200px"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true">     
+     </Button>
+      <Button
+          android:id="@+id/btnup"
+          android:text="UpButton"
+          android:layout_width="100px"
+          android:layout_height="wrap_content"          
+          android:layout_above="@id/btnmiddle"
+          android:layout_alignLeft="@id/btnmiddle">     
+     </Button>
+      <Button
+          android:id="@+id/btndown"
+          android:text="downButton"
+          android:layout_width="100px"
+          android:layout_height="wrap_content"          
+          android:layout_below="@id/btnmiddle"
+          android:layout_alignRight="@id/btnmiddle">     
+     </Button>
+</RelativeLayout>

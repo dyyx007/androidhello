@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content">
+ 
+    <Button android:text="buton001" 
+        android:id="@+id/Button01" 
+        android:width="600px"
+        android:height="500px"
+        android:background="#ff0000"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"></Button> 
+        
+     <Button android:text="buton002" 
+        android:id="@+id/Button02" 
+        android:width="500px"
+        android:height="400px"
+        android:background="#00ff00"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"></Button> 
+        
+     <Button android:text="buton003" 
+        android:id="@+id/Button03" 
+        android:width="400px"
+        android:height="300px"
+        android:background="#0000ff"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"></Button> 
+    
+    
+</FrameLayout>

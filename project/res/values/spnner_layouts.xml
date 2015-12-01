@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="layouts">  
+    <item>LinerLayout</item>  
+    <item>FrameLayout</item>  
+    <item>TableLayout</item>  
+    <item>RelativeLayout</item>  
+    <item>AbsoluteLayout</item> 
+    <item>TableLayout2</item>  
+    <item>ListView</item>  
+</string-array> 
+
+</resources>
