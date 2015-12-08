@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+   
+        
+      <Button android:text="显示拨打电话界面" 
+        android:id="@+id/btnDial" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        /> 
+    
+       <Button android:text="直接拨打电话" 
+        android:id="@+id/btnCall" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        /> 
+        
+         <Button android:text="打开浏览器访问指定URL" 
+        android:id="@+id/btnWeb" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        /> 
+      
+ 
+    
+</LinearLayout>

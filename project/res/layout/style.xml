@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    
+   <EditText android:id="@+id/tx01"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:hint="no border"
+             android:text="no border"
+             android:singleLine="true"  
+             android:background="@null"   
+   /> 
+   
+     <EditText android:id="@+id/tx02"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+    
+             android:text="style select test1"
+             android:singleLine="true"  
+             android:background="@drawable/style1"   
+   />
+    
+   <EditText android:id="@+id/tx03"
+             android:layout_width="300px"
+             android:layout_height="wrap_content"
+             android:text="style select test2"
+             android:singleLine="true"  
+            android:background="@drawable/style1"    
+   />
+   
+    <EditText android:id="@+id/tx04"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text="style select test3"
+             android:singleLine="true"  
+            android:background="@drawable/style1"  
+            android:textColor="#000000"  
+   />
+    
+     <Button android:text="Button Style Test" 
+        android:id="@+id/btn01" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+      
+        />
+    <!--   android:background="@drawable/btn_style"  -->
+    
+</LinearLayout>

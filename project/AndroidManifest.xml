@@ -51,8 +51,10 @@
        <activity android:name="com.dyyx.androidhello.GridViewActivity"/>
        <activity android:name="com.dyyx.androidhello.SystemInfoActivity"/>
        <activity android:name="com.dyyx.androidhello.LogActivity"/>
+       <activity android:name="com.dyyx.androidhello.IntentTestActivity"/>
+       <activity android:name="com.dyyx.androidhello.StyleActivity"/>
     </application>
     
-    
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />  
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

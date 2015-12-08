@@ -10,7 +10,9 @@
     <item>ListView</item> 
     <item>GridView</item>  
     <item>SystemInfo</item>  
-    <item>Log</item>  
+    <item>Log</item> 
+    <item>IntentTest</item> 
+    <item>Style</item>  
 </string-array> 
 
 </resources>

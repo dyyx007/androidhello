@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20151208-1103";
+	private static final String VERSION = "20151208-1435";
 	
 	static{
 		
@@ -34,6 +34,8 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("gridview", GridViewActivity.class);
 		activityMap.put("systeminfo", SystemInfoActivity.class);
 		activityMap.put("log", LogActivity.class);
+		activityMap.put("intenttest", IntentTestActivity.class);
+		activityMap.put("style", StyleActivity.class);
 	}
 	
 	@Override

@@ -4,12 +4,87 @@ add LogActivity
 日志查看 清理  
 事件处理 android:onClick="showLogs"
 public void showLogs(View view) 
+click 事件的几种写法
+实现 Button.OnClickListener  Btnxxx.setOnClickListener(listener)
+Activity 直接实现 OnClickListener
+一个方法实现多个click事件 通过 view.getId来区分是哪个控件产生的
 
 MainActivity 增加 VERSION
 
 LinearLayout  android:orientation="vertical"   horizontal
 
 
+activity生命周期
+不可见 可见 获取焦点
+4中启动模式   standard singleTop SingleTask singleInstance
+使用task来管理活动 一个task是一个活动栈
+出栈入栈
+如何查看task     adb shell dumpsys activity
+
+ Running activities (most recent first):
+   TaskRecord{b3ac20a8 #10 A com.dyyx.androidhello.MainActivity U 0}
+     Run #2: ActivityRecord{b3aca2d8 com.dyyx.androidhello/.ListViewActivity}
+     Run #1: ActivityRecord{b3899b48 com.dyyx.androidhello/.MainActivity}
+
+textedit 自定义样式
+http://m.blog.csdn.net/blog/jdsjlzx/25063169
+
+
+去掉边框  android:background="@null" 
+
+drawable 
+style1_normal.xml
+style1_focus.xml 
+style1.xml
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">   
+    <solid android:color="#FFFFFF" />   
+    <corners android:radius="3dip"/>  
+    <stroke    
+        android:width="1dip"    
+        android:color="#BDC7D8" />   
+</shape>
+
+
+
+
+android:textColor="#000000" 
+android:layout_width 无法指定百分比 报错
+
+
+
+
+
+android:state_pressed 是否按下，如一个按钮触摸或者点击。
+android:state_focused 是否取得焦点，比如用户选择了一个文本框。
+android:state_hovered 光标是否悬停，通常与focused state相同，它是4.0的新特性
+android:state_selected 被选中，它与focus state并不完全一样，如一个list view 被选中的时候，它里面的各个子组件可能通过方向键，被选中了。
+android:state_checkable 组件是否能被check。如：RadioButton是可以被check的。
+android:state_checked 被checked了，如：一个RadioButton可以被check了。
+android:state_enabled 能够接受触摸或者点击事件
+android:state_activated 被激活(这个麻烦举个例子，不是特明白)
+android:state_window_focused 应用程序是否在前台，当有通知栏被拉下来或者一个对话框弹出的时候应用程序就不在前台了
+ 
+
+Intent
+
+显示打电话界面
+Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:10086"));
+  startActivity(i);	
+
+          	
+
+直接拨打电话
+Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
+
+打开浏览器访问指定网络
+
+Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.baidu.com"));
+
+需要添加的权限
+
+  <uses-permission android:name="android.permission.CALL_PHONE" />  
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 
 
