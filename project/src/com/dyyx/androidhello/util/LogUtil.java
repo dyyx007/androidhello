@@ -15,15 +15,18 @@ public class LogUtil{
 	public static void log(String tag,String msg){
 		
 		Log.i(tag, msg);
+	
 		Date now = new Date();
-        logs.add(now+"@"+tag+"#"+msg);	
+		String nowstr = DyyxCommUtil.getDateString(now, DyyxCommUtil.TIME_FORMAT);
+        logs.add(nowstr+"."+tag+"."+msg);	
 	
 	}
 	
 	public static void log(String tag,String msg,Throwable t){
 		Log.e(tag, msg,t);
 		Date now = new Date();
-        logs.add(now+"@"+tag+"#"+msg+"#"+t);	
+		String nowstr = DyyxCommUtil.getDateString(now, DyyxCommUtil.TIME_FORMAT);
+        logs.add(nowstr+"."+tag+"."+msg+"."+t);	
 	}
 	
 	public static void clear(){		

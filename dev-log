@@ -87,6 +87,15 @@ Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.baidu.com"));
     <uses-permission android:name="android.permission.INTERNET"/>
 
 
+Android Service 详解简单音乐播放器 
+http://www.jdzhao.com/component/show_211_114.html
+
+Android MediaPlayer播放mp3的实例
+http://weizhulin.blog.51cto.com/1556324/311694/
+
+res/raw/music.mp3
+MediaPlayer.create(this,R.raw.music);  
+
 
 20151207
 

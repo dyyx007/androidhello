@@ -14,42 +14,42 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		LogUtil.log(TAG, "onCreate," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onCreate," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		LogUtil.log(TAG, "onStart," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onStart," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		LogUtil.log(TAG, "onResume," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onResume," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		LogUtil.log(TAG, "onPause," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onPause," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		LogUtil.log(TAG, "onStop," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onStop," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		LogUtil.log(TAG, "onDestroy," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onDestroy," + this + ",taskId=" + this.getTaskId());
 	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		String str = "onKeyDown," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId();
+		String str = "onKeyDown," + this + ",taskId=" + this.getTaskId();
 		str = str + ",keyCode=" + keyCode + ",event=" + event;
 		LogUtil.log(TAG, str);
 		return super.onKeyDown(keyCode, event);
@@ -57,20 +57,20 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		LogUtil.log(TAG, "onBackPressed," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onBackPressed," + this + ",taskId=" + this.getTaskId());
 	
 		super.onBackPressed();
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		LogUtil.log(TAG, "onSaveInstanceState," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onSaveInstanceState," + this + ",taskId=" + this.getTaskId());
 		super.onSaveInstanceState(outState);
 
 	}
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState,PersistableBundle persistentState){
-		LogUtil.log(TAG, "onRestoreInstanceState," + this.getClass() + ',' + this + ",taskId=" + this.getTaskId());
+		LogUtil.log(TAG, "onRestoreInstanceState," + this + ",taskId=" + this.getTaskId());
 		super.onRestoreInstanceState(savedInstanceState, persistentState);
 	}
 

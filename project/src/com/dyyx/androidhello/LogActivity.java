@@ -51,7 +51,7 @@ public class LogActivity extends BaseActivity {
 		if (num > 0) {
 			int start = num - 1;
 			for (int i = start; i >= 0; i--)
-				sb.append(logs.get(i)).append("\n");
+				sb.append(logs.get(i)).append("\n\n");
 		}
 		textEditLogs.setText(sb.toString());
 	}
