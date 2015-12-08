@@ -50,7 +50,7 @@
        <activity android:name="com.dyyx.androidhello.ListViewActivity"/>
        <activity android:name="com.dyyx.androidhello.GridViewActivity"/>
        <activity android:name="com.dyyx.androidhello.SystemInfoActivity"/>
-        
+       <activity android:name="com.dyyx.androidhello.LogActivity"/>
     </application>
     
     

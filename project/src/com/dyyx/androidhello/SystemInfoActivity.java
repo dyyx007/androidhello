@@ -1,12 +1,13 @@
 package com.dyyx.androidhello;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
 
+import com.dyyx.androidhello.base.BaseActivity;
 
-public class SystemInfoActivity extends Activity {
+
+public class SystemInfoActivity extends BaseActivity {
 	
 	private TextView textview ;
 	

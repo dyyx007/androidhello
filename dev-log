@@ -1,3 +1,31 @@
+20151208
+
+add LogActivity
+日志查看 清理  
+事件处理 android:onClick="showLogs"
+public void showLogs(View view) 
+
+MainActivity 增加 VERSION
+
+LinearLayout  android:orientation="vertical"   horizontal
+
+
+
+
+
+20151207
+
+add BaseActivity
+add LogUtil
+
+ImageView  android:scaleType="fitCenter"
+ImageView.ScaleType.FIT_CENTER
+
+
+
+
+
+
 20151201
 
 
@@ -74,3 +102,25 @@ imageview 高度 宽度设置 如何缩放
 20151127
 
 常用布局
+
+技术点 
+
+四大组件 常用控件  布局
+fragment webview 
+广播 通知
+service 音乐播放器  
+service 本地 远程 bind  
+网络状态变化  启动后台服务 发送通知 点击打开app 
+Intent  PendingIntent
+
+
+banner 轮播
+标签页导航 
+网络图片加载缓存 
+listview gridview 等优化
+
+
+
+
+
+

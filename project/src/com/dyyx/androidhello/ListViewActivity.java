@@ -1,13 +1,13 @@
 package com.dyyx.androidhello;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import com.dyyx.androidhello.adaptor.MyListViewAdaptor;
+import com.dyyx.androidhello.base.BaseActivity;
 import com.dyyx.androidhello.util.DataUtil;
 
-public class ListViewActivity extends Activity {
+public class ListViewActivity extends BaseActivity {
 	
 	ListView lv = null;
 	
