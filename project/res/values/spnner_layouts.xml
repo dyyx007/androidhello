@@ -13,6 +13,8 @@
     <item>Log</item> 
     <item>IntentTest</item> 
     <item>Style</item>  
+    <item>MusicPlayer</item> 
+    <item>MusicPlayer2</item> 
 </string-array> 
 
 </resources>

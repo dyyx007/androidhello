@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20151208-1608";
+	private static final String VERSION = "20151209-1545";
 	
 	static{
 		
@@ -36,6 +36,8 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("log", LogActivity.class);
 		activityMap.put("intenttest", IntentTestActivity.class);
 		activityMap.put("style", StyleActivity.class);
+		activityMap.put("musicplayer", MusicPlayerActivity.class);
+		activityMap.put("musicplayer2", MusicPlayer2Activity.class);
 	}
 	
 	@Override

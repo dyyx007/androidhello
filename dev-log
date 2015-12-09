@@ -1,3 +1,23 @@
+20151209
+
+
+Android Service 详解简单音乐播放器 
+http://www.jdzhao.com/component/show_211_114.html
+
+3种方式  service  广播  bindService
+
+Android之MediaPlayer播放音乐并实现进度条实例
+http://blog.csdn.net/rhljiayou/article/details/7110258
+
+播放进度条 TODO
+
+
+IntentService 
+
+
+
+
+
 20151208
 
 add LogActivity

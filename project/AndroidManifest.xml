@@ -53,6 +53,22 @@
        <activity android:name="com.dyyx.androidhello.LogActivity"/>
        <activity android:name="com.dyyx.androidhello.IntentTestActivity"/>
        <activity android:name="com.dyyx.androidhello.StyleActivity"/>
+       <activity android:name="com.dyyx.androidhello.MusicPlayerActivity"/>
+       <activity android:name="com.dyyx.androidhello.MusicPlayer2Activity"/>
+       
+       <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
+	     <intent-filter>
+		 <action android:name="com.dyyx.androidhello.service.MusicPlayerService" />
+	     </intent-filter>
+       </service>
+       
+       <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerBindService">
+	     <intent-filter>
+		 <action android:name="com.dyyx.androidhello.service.MusicPlayerBindService" />
+	     </intent-filter>
+       </service>
+       
+       
     </application>
     
     <uses-permission android:name="android.permission.CALL_PHONE" />  
