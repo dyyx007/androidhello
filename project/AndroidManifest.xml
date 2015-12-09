@@ -55,6 +55,7 @@
        <activity android:name="com.dyyx.androidhello.StyleActivity"/>
        <activity android:name="com.dyyx.androidhello.MusicPlayerActivity"/>
        <activity android:name="com.dyyx.androidhello.MusicPlayer2Activity"/>
+       <activity android:name="com.dyyx.androidhello.NetworkActivity"/>
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>

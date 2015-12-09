@@ -15,6 +15,7 @@
     <item>Style</item>  
     <item>MusicPlayer</item> 
     <item>MusicPlayer2</item> 
+    <item>Network</item> 
 </string-array> 
 
 </resources>

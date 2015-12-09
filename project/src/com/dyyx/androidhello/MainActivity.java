@@ -38,6 +38,7 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("style", StyleActivity.class);
 		activityMap.put("musicplayer", MusicPlayerActivity.class);
 		activityMap.put("musicplayer2", MusicPlayer2Activity.class);
+		activityMap.put("network", NetworkActivity.class);
 	}
 	
 	@Override

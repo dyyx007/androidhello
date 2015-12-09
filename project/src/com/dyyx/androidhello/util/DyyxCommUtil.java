@@ -1,7 +1,14 @@
 package com.dyyx.androidhello.util;
 
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 public class DyyxCommUtil {
 
@@ -9,6 +16,11 @@ public class DyyxCommUtil {
 	public static final String TIME_FORMAT = "HH:MM:ss";
 
 	public static final String EMPTY = "";
+	
+	public static final String CHARSET = "utf-8";
+	// application/x-javascript; charset=GBK
+	private static final String  CHARSET_KEY = "charset=";
+	private static final int  CHARSET_KEY_LEN = CHARSET_KEY.length();
 
 	public static boolean isBlank(String s) {
 		if (s == null || EMPTY.equals(s)) {
@@ -38,6 +50,68 @@ public class DyyxCommUtil {
 			return sdf.format(date);
 		} catch (Throwable e) {
 			return date.toString();
+		}
+	}
+	
+    public static String doHttpGet(String url)throws Exception{
+
+		URL urlo = new URL(url);
+
+		URLConnection conn = urlo.openConnection();
+		HttpURLConnection huc = (HttpURLConnection) conn;
+		
+
+		String contentType = huc.getContentType();
+        String charset = getCharset(contentType);
+        if(isBlank(charset)){
+        	charset = CHARSET;
+        }
+		
+		
+		InputStream is = null;
+		ByteArrayOutputStream baos= new ByteArrayOutputStream();
+		int ch = 0;
+		try{
+		is = huc.getInputStream();
+		while((ch=is.read())!=-1){
+			baos.write(ch);
+		}
+		byte[] bytes = baos.toByteArray();
+		
+
+		return new String(bytes,charset);
+		}finally{
+			close(is);
+		}
+	}
+    
+
+    private static String getCharset(String str) {
+		// application/x-javascript; charset=GBK
+		if(isBlank(str)){
+			return null;
+		}
+		int pos = str.indexOf(CHARSET_KEY);
+		if(pos >= 0){
+			return str.substring(pos+CHARSET_KEY_LEN);
+		}
+
+		return null;
+	}
+    
+    
+	public static void runHttpCall(String url,Map<String,String> params,Runnable callback){
+		
+	}
+	
+	public static void close(Closeable obj) {
+		if (obj == null) {
+			return;
+		}
+		try {
+			obj.close();
+		} catch (Throwable e) {
+
 		}
 	}
 
