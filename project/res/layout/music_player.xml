@@ -8,10 +8,13 @@
 <Button android:id="@+id/btnPlay" android:text="play"         
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"/> 
+        
       
+
 <Button android:id="@+id/btnStop" android:text="stop"         
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"/> 
+     
         
 <Button android:id="@+id/btnPause" android:text="pause"         
         android:layout_width="fill_parent" 

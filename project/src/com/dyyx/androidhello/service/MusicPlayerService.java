@@ -67,6 +67,7 @@ public class MusicPlayerService extends Service{
 		}
 	}
 	public void stop() {
+		/*
 		if (mediaPlayer != null) {
 			mediaPlayer.stop();
 			try {
@@ -77,5 +78,7 @@ public class MusicPlayerService extends Service{
 				LogUtil.log(TAG, "stop error", e);
 			}
 		}
+		*/
+		LogUtil.log(TAG, "stop do nothing");
 	}
 }

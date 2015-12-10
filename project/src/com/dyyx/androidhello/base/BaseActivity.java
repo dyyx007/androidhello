@@ -9,7 +9,7 @@ import com.dyyx.androidhello.util.LogUtil;
 
 public class BaseActivity extends Activity {
 
-	String TAG = this.getClass().getSimpleName();
+	protected String TAG = this.getClass().getSimpleName();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

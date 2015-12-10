@@ -11,6 +11,14 @@ import java.util.Date;
 import java.util.Map;
 
 public class DyyxCommUtil {
+	
+
+	
+	public  static final String BROADCAST_TEST = "com.dyyx.androidhello.broadcast.test";
+	public  static final String BROADCAST_TEST_LOCAL = "com.dyyx.androidhello.broadcast.test_local";
+
+	
+	public  static final String NO_STOP_MSG = "stop之后无法继续play,暂时不实现该功能";
 
 	public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:MM:ss";
 	public static final String TIME_FORMAT = "HH:MM:ss";
@@ -51,6 +59,10 @@ public class DyyxCommUtil {
 		} catch (Throwable e) {
 			return date.toString();
 		}
+	}
+	
+	public static String getNowDateString() {
+		return getDateString(new Date(), null);
 	}
 	
     public static String doHttpGet(String url)throws Exception{

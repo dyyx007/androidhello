@@ -1,3 +1,38 @@
+20151210
+
+add NetworkChangeRecv  监听网络状态变化
+
+      <receiver android:name="com.dyyx.androidhello.recv.NetworkChangeRecv">
+           <intent-filter>
+               <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
+           </intent-filter>
+       </receiver>
+
+       貌似只有应用启动的时候才能 接收到
+
+       3.0之后的，必须用户手动启动app之后，receiver才能接收到广播 待确认
+
+ 开机广播
+
+ 本地广播收不到
+在 HelloApp里 注册
+java.lang.NullPointerException at android.support.v4.content.LocalBroadcastManager.executePendingBroadcasts(LocalBroadcastManager.java:297)
+
+接收器没有初始化 已搞定
+
+LocalBroadcastManager注册广播只能通过代码的方式   动态注册
+
+
+静态注册  动态注册
+
+
+
+
+
+
+
+
+
 20151209
 
 
@@ -12,8 +47,8 @@ http://blog.csdn.net/rhljiayou/article/details/7110258
 播放进度条 TODO
 
 
-IntentService 
-
+IntentService  TODO
+ 
 
 
 

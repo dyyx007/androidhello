@@ -16,6 +16,8 @@
     <item>MusicPlayer</item> 
     <item>MusicPlayer2</item> 
     <item>Network</item> 
+    <item>Broadcast</item> 
+    
 </string-array> 
 
 </resources>

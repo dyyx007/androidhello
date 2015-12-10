@@ -9,9 +9,11 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.dyyx.androidhello.base.BaseActivity;
 import com.dyyx.androidhello.service.MusicPlayerBindService;
+import com.dyyx.androidhello.util.DyyxCommUtil;
 import com.dyyx.androidhello.util.LogUtil;
 
 public class MusicPlayer2Activity extends BaseActivity implements OnClickListener  {
@@ -65,8 +67,12 @@ public class MusicPlayer2Activity extends BaseActivity implements OnClickListene
 			musicService.play();
 			break;
 		case R.id.btnStop:
-			LogUtil.log(TAG, "onClick: stoping music");
-			musicService.stop();
+			
+			Toast toast=Toast.makeText(getApplicationContext(), DyyxCommUtil.NO_STOP_MSG, Toast.LENGTH_SHORT); 
+			toast.show();
+			
+			//LogUtil.log(TAG, "onClick: stoping music");
+			//musicService.stop();
 			break;
 		case R.id.btnPause:
 			LogUtil.log(TAG, "onClick: pausing music");

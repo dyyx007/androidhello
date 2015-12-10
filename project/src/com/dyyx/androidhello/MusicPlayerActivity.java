@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.dyyx.androidhello.base.BaseActivity;
+import com.dyyx.androidhello.util.DyyxCommUtil;
 import com.dyyx.androidhello.util.LogUtil;
 
 public class MusicPlayerActivity extends BaseActivity implements OnClickListener  {
@@ -52,8 +54,12 @@ public class MusicPlayerActivity extends BaseActivity implements OnClickListener
 			op = 1;
 			break;
 		case R.id.btnStop:
-			LogUtil.log(TAG, "onClick: stoping music");
-			op = 2;
+			
+			Toast toast=Toast.makeText(getApplicationContext(), DyyxCommUtil.NO_STOP_MSG, Toast.LENGTH_SHORT); 
+			toast.show();
+			
+			//LogUtil.log(TAG, "onClick: stoping music");
+			//op = 2;
 			break;
 		case R.id.btnPause:
 			LogUtil.log(TAG, "onClick: pausing music");
