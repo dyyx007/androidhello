@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20151210-1720";
+	private static final String VERSION = "20151211-1345";
 	
 	static{
 		
@@ -40,6 +40,7 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("musicplayer2", MusicPlayer2Activity.class);
 		activityMap.put("network", NetworkActivity.class);
 		activityMap.put("broadcast", BroadcastActivity.class);
+		activityMap.put("chat", ChatActivity.class);
 		
 	}
 	
