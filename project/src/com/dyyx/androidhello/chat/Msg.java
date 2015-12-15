@@ -6,6 +6,10 @@ public class Msg {
 	public String content;
 	public int type;
 	
-	
+	public Msg(String content,int type){
+		
+		this.content = content;
+		this.type=type;
+	}
 
 }
