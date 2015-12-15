@@ -58,6 +58,8 @@
        <activity android:name="com.dyyx.androidhello.NetworkActivity"/>
        <activity android:name="com.dyyx.androidhello.BroadcastActivity"/>
        <activity android:name="com.dyyx.androidhello.ChatActivity"/>
+       <activity android:name="com.dyyx.androidhello.FragmentTestActivity"/>
+       <activity android:name="com.dyyx.androidhello.FragmentAddActivity"/>
         
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">

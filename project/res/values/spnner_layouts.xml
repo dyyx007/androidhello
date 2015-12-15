@@ -18,7 +18,9 @@
     <item>Network</item> 
     <item>Broadcast</item> 
     <item>Chat</item> 
-    
+     <item>FragmentTest</item> 
+     <item>FragmentAddTest</item> 
+     
 </string-array> 
 
 </resources>
