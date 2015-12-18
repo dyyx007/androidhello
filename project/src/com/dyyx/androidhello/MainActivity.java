@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20151215-1650";
+	private static final String VERSION = "20151218-1752";
 	
 	static{
 		
@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity {
 		
 		activityMap.put("fragmenttest", FragmentTestActivity.class);
 		activityMap.put("fragmentaddtest", FragmentAddActivity.class);
+		activityMap.put("notification",NotificationActivity.class);
 		
 	}
 	

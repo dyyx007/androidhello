@@ -29,7 +29,7 @@ public class FragmentAddActivity extends  FragmentActivity implements OnClickLis
 		Button button = (Button) findViewById(R.id.btn01);
 		button.setOnClickListener(this);
 		
-		
+	
 
 	}
 	
@@ -46,6 +46,8 @@ public class FragmentAddActivity extends  FragmentActivity implements OnClickLis
 		// ÃÌº”µΩ∑µªÿ’ª
 		
 		transaction.addToBackStack(null);
+		
+	
 		
 		transaction.commit();
 	}

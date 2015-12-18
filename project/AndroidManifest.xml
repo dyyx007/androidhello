@@ -60,6 +60,10 @@
        <activity android:name="com.dyyx.androidhello.ChatActivity"/>
        <activity android:name="com.dyyx.androidhello.FragmentTestActivity"/>
        <activity android:name="com.dyyx.androidhello.FragmentAddActivity"/>
+       <activity android:name="com.dyyx.androidhello.NotificationActivity"/>
+       
+       
+       
         
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
