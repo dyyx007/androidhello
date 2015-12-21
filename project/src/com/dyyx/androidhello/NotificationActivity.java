@@ -50,11 +50,15 @@ public class NotificationActivity extends BaseActivity implements OnClickListene
 			case R.id.btnSendPenddingIntent:
 				 Toast.makeText( this, "btnSendPenddingIntent notification click",Toast.LENGTH_SHORT ).show(); 
 				NotificationManager manager2 = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-				Notification notification2 = new Notification(R.drawable. ic_launcher, "This is ticker text", System.currentTimeMillis());
+				Notification notification2 = new Notification(R.drawable. ic_launcher, "padding intent notification tickerText", System.currentTimeMillis());
 				Intent intent = new Intent(this, NotificationActivity.class);
 				PendingIntent pi = PendingIntent.getActivity(this, 0, intent,
 				PendingIntent.FLAG_CANCEL_CURRENT);
-				notification2.setLatestEventInfo(this, "This is content title", "This is content text", pi);
+				notification2.setLatestEventInfo(this, "padding intent notification  content title", "padding intent notification content text", pi);
+				
+				//notification2.sound = null;
+				notification2.defaults = Notification.DEFAULT_SOUND; 
+				
 				manager2.notify(2, notification2);
 				
 				break;

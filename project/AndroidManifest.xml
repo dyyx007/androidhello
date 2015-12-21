@@ -62,8 +62,8 @@
        <activity android:name="com.dyyx.androidhello.FragmentAddActivity"/>
        <activity android:name="com.dyyx.androidhello.NotificationActivity"/>
        
-       
-       
+       <activity android:name="com.dyyx.androidhello.SmsActivity"/>
+       <activity android:name="com.dyyx.androidhello.PhotoActivity"/>
         
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
@@ -97,11 +97,20 @@
        </receiver>
        -->
        
+       <receiver android:name="com.dyyx.androidhello.recv.SmsRecv">  
+            <intent-filter android:priority="998">  
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>  
+            </intent-filter>  
+        </receiver>  
+        
        
     </application>
     
     <uses-permission android:name="android.permission.CALL_PHONE" />  
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
 </manifest>

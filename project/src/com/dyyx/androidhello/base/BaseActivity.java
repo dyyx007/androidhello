@@ -42,7 +42,7 @@ public class BaseActivity extends Activity {
 	}
 
 	@Override
-	public void onDestroy() {
+	protected void onDestroy() {
 		super.onDestroy();
 		LogUtil.log(TAG, "onDestroy," + this + ",taskId=" + this.getTaskId());
 	}
