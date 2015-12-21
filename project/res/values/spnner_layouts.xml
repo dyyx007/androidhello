@@ -23,6 +23,7 @@
     <item>Notification</item> 
     <item>Sms</item> 
     <item>Photo</item> 
+    <item>Service</item> 
      
 </string-array> 
 

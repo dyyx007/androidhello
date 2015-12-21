@@ -64,7 +64,7 @@
        
        <activity android:name="com.dyyx.androidhello.SmsActivity"/>
        <activity android:name="com.dyyx.androidhello.PhotoActivity"/>
-        
+       <activity android:name="com.dyyx.androidhello.ServiceActivity"/>
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>
@@ -77,6 +77,9 @@
 		 <action android:name="com.dyyx.androidhello.service.MusicPlayerBindService" />
 	     </intent-filter>
        </service>
+       
+       
+       <service  android:name="com.dyyx.androidhello.service.My01Service"></service>
        
        <receiver android:name="com.dyyx.androidhello.recv.NetworkChangeRecv">
            <intent-filter>
