@@ -24,7 +24,25 @@
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"/> 
         
-      
+            <Button android:id="@+id/btnBindTimeService" 
+        android:text="bind time service" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"/> 
+        
+        <Button android:id="@+id/btnUnbindTimeService" 
+        android:text="unbind time service" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"/> 
+        
+          <Button android:id="@+id/btnGetTimeFromBinder" 
+        android:text="get time from binder" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"/> 
+        
+         <Button android:id="@+id/btnStartIntentService" 
+        android:text="start intent service" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"/> 
       
         
   </LinearLayout>

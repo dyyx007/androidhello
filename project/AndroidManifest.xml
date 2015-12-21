@@ -80,6 +80,8 @@
        
        
        <service  android:name="com.dyyx.androidhello.service.My01Service"></service>
+       <service  android:name="com.dyyx.androidhello.service.MyTimeService"></service>
+       <service android:name="com.dyyx.androidhello.service.MyIntentService"></service>
        
        <receiver android:name="com.dyyx.androidhello.recv.NetworkChangeRecv">
            <intent-filter>
