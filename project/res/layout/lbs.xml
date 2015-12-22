@@ -10,6 +10,48 @@
         android:layout_height="wrap_content"
         android:text="lbs"
         />
+      
+      <Spinner android:id="@+id/spinnerLocationProvider"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"></Spinner>
+      
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+           
+  <Button android:id="@+id/btnGetLbsProviders" 
+        android:text="getLbsProviders" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+    <Button android:id="@+id/btnGetLocation" 
+        android:text="getLocation" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+        <Button android:id="@+id/btnSetLocationListener" 
+        android:text="setLocationListener" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+           </LinearLayout>
+           
+       
+      <EditText android:id="@+id/textEditLbsResult"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:inputType="textMultiLine"  
+             android:editable="false"       
+       /> 
+      
     
     
 </LinearLayout>

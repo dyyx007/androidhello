@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
@@ -96,6 +97,35 @@ public class DyyxCommUtil {
 			close(is);
 		}
 	}
+    
+    public static String join(Collection c,String sep){
+    	if(c==null){
+    		return null;
+    	}
+    	boolean isfirst = true;
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for(Object item:c){
+    		
+    	    if(isfirst){
+    	    	isfirst = false;
+    	    }else{
+    	    	if(sep!=null){
+    	    	     sb.append(sep);
+    	    	}
+    	    }
+    		
+    		
+    		if(item==null){
+    			
+    		}else{
+    			sb.append(item);
+    		}
+    	
+    	}
+    	
+    	return sb.toString();
+    }
     
 
     private static String getCharset(String str) {
