@@ -19,7 +19,8 @@ public class My01Service extends Service {
 	public void onCreate() {
 		super.onCreate();
 		LogUtil.log(TAG, "onCreate," + this);
-
+		//SAXParserFactory x;
+		
 	}
 
 	@Override

@@ -25,6 +25,8 @@
     <item>Photo</item> 
     <item>Service</item> 
     <item>LongRun</item> 
+    <item>LBS</item> 
+    <item>Sensor</item> 
      
 </string-array> 
 

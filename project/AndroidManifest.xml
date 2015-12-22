@@ -66,6 +66,8 @@
        <activity android:name="com.dyyx.androidhello.PhotoActivity"/>
        <activity android:name="com.dyyx.androidhello.ServiceActivity"/>
        <activity android:name="com.dyyx.androidhello.LongRunActivity"/>
+       <activity android:name="com.dyyx.androidhello.LbsActivity"/>
+       <activity android:name="com.dyyx.androidhello.SensorActivity"/>
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>
