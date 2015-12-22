@@ -24,6 +24,7 @@
     <item>Sms</item> 
     <item>Photo</item> 
     <item>Service</item> 
+    <item>LongRun</item> 
      
 </string-array> 
 
