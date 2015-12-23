@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+   
+      <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="store"
+        />
+         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+     <Button android:id="@+id/btnGetAppDirInfo" 
+        android:text="getAppDirInfo" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+      </LinearLayout>
+      
+           <EditText android:id="@+id/textEditFile"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content" /> 
+         
+         
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+          <Spinner android:id="@+id/spinnerMode"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"></Spinner>  
+             
+  <Button android:id="@+id/btnRead" 
+        android:text="read" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+    <Button android:id="@+id/btnWrite" 
+        android:text="write" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+ 
+           </LinearLayout>
+           
+       
+      <EditText android:id="@+id/textEditResult"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:inputType="textMultiLine"  
+             android:editable="false"       
+       /> 
+      
+    
+    
+</LinearLayout>

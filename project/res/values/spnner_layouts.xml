@@ -20,6 +20,9 @@
     <item>Chat</item> 
     <item>FragmentTest</item> 
     <item>FragmentAddTest</item> 
+    
+    <item>Store</item> 
+    
     <item>Notification</item> 
     <item>Sms</item> 
     <item>Photo</item> 
