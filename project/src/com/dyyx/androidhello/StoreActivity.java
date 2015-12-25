@@ -9,6 +9,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,6 +29,9 @@ public class StoreActivity extends BaseActivity {
 
 	static final String ASSETS_PREFIX = "assets:";
 	static final String FILE_PREFIX = "file:";
+	
+	static final String APPEND = "append";
+	static final String PRIVATE = "private";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +46,12 @@ public class StoreActivity extends BaseActivity {
 		btnGetAppDirInfo = (Button) findViewById(R.id.btnGetAppDirInfo);
 
 		spinnerMode = (Spinner) findViewById(R.id.spinnerMode);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+		adapter.add(PRIVATE);
+		adapter.add(APPEND);
 
-		//this.MODE_PRIVATE
-		//int id =R.raw.data ;
+		spinnerMode.setAdapter(adapter);
+
 
 	}
 
@@ -56,22 +63,22 @@ public class StoreActivity extends BaseActivity {
 
 			StringBuilder sb = new StringBuilder();
 			sb.append("cacheDir=" + context.getCacheDir());
-			sb.append(",dbpath=" + context.getDatabasePath("dyyx"));
-			sb.append(",filesDir=" + context.getFilesDir());
-			sb.append(",filesDirFullPath=" + context.getFilesDir().getAbsolutePath());
+			sb.append("\n dbpath=" + context.getDatabasePath("dyyx"));
+			sb.append("\n filesDir=" + context.getFilesDir());
+			sb.append("\n filesDirFullPath=" + context.getFilesDir().getAbsolutePath());
 
-			sb.append(",packageCodePath=" + context.getPackageCodePath());
-			sb.append(",packageResourcePath=" + context.getPackageResourcePath());
+			sb.append("\n packageCodePath=" + context.getPackageCodePath());
+			sb.append("\n packageResourcePath=" + context.getPackageResourcePath());
 			
 			
-			sb.append(",Environment.getDataDirectory()=" + Environment.getDataDirectory());
+			sb.append("\n Environment.getDataDirectory()=" + Environment.getDataDirectory());
 			
-			sb.append(",Environment.getDownloadCacheDirectory()=" + Environment.getDownloadCacheDirectory());
-			sb.append(",Environment.getExternalStorageDirectory()=" + Environment.getExternalStorageDirectory());
-			sb.append(",Environment.getRootDirectory()=" + Environment.getRootDirectory());
+			sb.append("\n Environment.getDownloadCacheDirectory()=" + Environment.getDownloadCacheDirectory());
+			sb.append("\n Environment.getExternalStorageDirectory()=" + Environment.getExternalStorageDirectory());
+			sb.append("\n Environment.getRootDirectory()=" + Environment.getRootDirectory());
 			
-			sb.append(",Environment.getExternalStorageState()=" + Environment.getExternalStorageState());
-			sb.append(",Environment.getExternalStorageDirectory().getAbsolutePath()()=" +Environment.getExternalStorageDirectory().getAbsolutePath());
+			sb.append("\n Environment.getExternalStorageState()=" + Environment.getExternalStorageState());
+			sb.append("\n Environment.getExternalStorageDirectory().getAbsolutePath()()=" +Environment.getExternalStorageDirectory().getAbsolutePath());
 
 			
 			//Environment.getExternalStoragePublicDirectory(type)
@@ -196,6 +203,11 @@ public class StoreActivity extends BaseActivity {
 	}
 
 	private int getMode() {
+		
+		String tmp = spinnerMode.getSelectedItem().toString();
+		if(PRIVATE.equals(tmp)){
+			return Context.MODE_APPEND;
+		}
 
 		return Context.MODE_PRIVATE;
 	}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TableLayout01"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchColumns="*" >
+
+    <TableRow android:gravity="center">
+        <TextView android:text="string" 
+                  android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"></TextView>
+        
+            <EditText android:id="@+id/textEditString"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+              android:textColor="#0000ff"
+              android:textSize="20dp" 
+             /> 
+  
+    </TableRow>
+    
+     <TableRow android:gravity="center">
+        <TextView android:text="int" 
+                  android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"></TextView>
+        
+           <EditText android:id="@+id/textEditInt"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+              android:textColor="#0000ff"
+              android:textSize="20dp" 
+             /> 
+       
+    </TableRow>
+    
+          <TableRow android:gravity="center">
+        <TextView android:text="bool" 
+                  android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"></TextView>
+        
+           <EditText android:id="@+id/textEditBool"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+              android:textColor="#0000ff"
+              android:textSize="20dp" 
+              
+             /> 
+       
+    </TableRow>
+    
+                    <TableRow android:gravity="center">
+        <TextView android:text="" 
+                  android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"></TextView>
+        
+          
+               <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+      
+             
+  <Button android:id="@+id/btnRead" 
+        android:text="read" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+    <Button android:id="@+id/btnWrite" 
+        android:text="write" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:onClick="clickHandle"
+        /> 
+        
+ 
+           </LinearLayout>
+            </TableRow>
+               
+                 
+                 
+                 <TableRow android:gravity="center" 
+                  android:layout_height="fill_parent" 
+                     >
+        <TextView android:text="" 
+                  android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"></TextView>
+        
+               <EditText android:id="@+id/textEditResult"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content" 
+             android:maxLines="10000" 
+             android:lines="5"
+             /> 
+             
+    </TableRow>
+     
+</TableLayout>
