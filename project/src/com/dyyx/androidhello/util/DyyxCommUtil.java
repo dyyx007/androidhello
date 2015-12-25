@@ -21,8 +21,8 @@ public class DyyxCommUtil {
 	
 	public  static final String NO_STOP_MSG = "stop之后无法继续play,暂时不实现该功能";
 
-	public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:MM:ss";
-	public static final String TIME_FORMAT = "HH:MM:ss";
+	public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static final String TIME_FORMAT = "HH:mm:ss";
 
 	public static final String EMPTY = "";
 	

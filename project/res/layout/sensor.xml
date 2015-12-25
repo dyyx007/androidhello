@@ -9,7 +9,33 @@
         android:layout_height="wrap_content"
         android:text="sensor"
         />
-  
+     <TextView 
+         android:id="@+id/textviewLight"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+     
+          <TextView 
+         android:id="@+id/textviewM"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+          
+               <TextView 
+         android:id="@+id/textviewA"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+               
+                    <TextView 
+         android:id="@+id/textviewMa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
     
     
 </LinearLayout>
