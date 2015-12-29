@@ -31,7 +31,9 @@
     <item>LongRun</item> 
     <item>LBS</item> 
     <item>Sensor</item> 
-     
+    <item>UrlSchema</item>  
+    
+    
 </string-array> 
 
 </resources>

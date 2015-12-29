@@ -1,3 +1,37 @@
+
+20151229
+
+add UrlSchemaActivity
+android实现通过浏览器点击链接打开apk
+http://jingyan.baidu.com/article/c45ad29cd6b155051753e2be.html
+
+<a href="dyyx://dyyx.com/hello?name=tiger"> go to dyyx app </a>
+
+<activity android:name="com.dyyx.androidhello.UrlSchemaActivity">
+       
+          <intent-filter>  
+             <action android:name="android.intent.action.VIEW"/>  
+             <category android:name="android.intent.category.DEFAULT" />  
+             <category android:name="android.intent.category.BROWSABLE" />  
+             <data android:scheme="dyyx"/>  
+          </intent-filter> 
+          
+       </activity>
+
+StringBuilder sb = new StringBuilder();
+		Intent intent = getIntent();  
+		sb.append("intent="+intent);
+		if(intent!=null){
+		    Uri uri = intent.getData();  
+		    sb.append(",uri="+uri);
+		    if(uri!=null){
+		    	String name = uri.getQueryParameter("name");
+		    	sb.append(",name="+name);
+		    }
+		}
+
+
+
 20151211
 
 

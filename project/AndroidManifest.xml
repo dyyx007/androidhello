@@ -70,7 +70,18 @@
        <activity android:name="com.dyyx.androidhello.SensorActivity"/>
        <activity android:name="com.dyyx.androidhello.StoreActivity"/>
        <activity android:name="com.dyyx.androidhello.SpActivity"/>
+       <activity android:name="com.dyyx.androidhello.UrlSchemaActivity">
        
+          <intent-filter>  
+             <action android:name="android.intent.action.VIEW"/>  
+             <category android:name="android.intent.category.DEFAULT" />  
+             <category android:name="android.intent.category.BROWSABLE" />  
+             <data android:scheme="dyyx"/>  
+          </intent-filter> 
+          
+       </activity>
+         
+    
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>
 		 <action android:name="com.dyyx.androidhello.service.MusicPlayerService" />
