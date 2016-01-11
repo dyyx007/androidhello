@@ -80,6 +80,8 @@
           </intent-filter> 
           
        </activity>
+       
+       <activity android:name="com.dyyx.androidhello.FundActivity"/>
          
     
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">

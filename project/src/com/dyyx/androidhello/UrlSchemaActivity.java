@@ -31,7 +31,7 @@ public class UrlSchemaActivity extends BaseActivity {
 		    }
 		}
 		textEditResult.setText(sb.toString());
-
+	
 	}
 
 	

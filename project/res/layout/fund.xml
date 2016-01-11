@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+    
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+           <TextView android:id="@+id/textViewDateTitle"
+                android:text="date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+           <!--  
+           <DatePicker  
+        android:id="@+id/datepicker01"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:calendarViewShown="false" />  
+        -->
+        
+           <EditText android:id="@+id/textEditDate"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"           
+             android:singleLine="true" 
+             android:maxLength="10"     
+              /> 
+              
+              <Button
+            android:id="@+id/btnRead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read" />
+              
+              
+                      <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report" />
+              
+                 <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+         
+      </LinearLayout>
+    
+    
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewHs300Title"
+         android:text="hs300 index"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditHs300"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>
+    
+        
+        
+              <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewSabTitle"
+         android:text="stock account balance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditSab"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>
+    
+              
+               <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewMfbTitle"
+         android:text="Money fund balance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditMfb"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>
+    
+               
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewSmvTitle"
+         android:text="stock market value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditSmv"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+   
+     </LinearLayout>
+     
+       
+   
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewCvTitle"
+         android:text="Corrected value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditCv"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>
+    
+      
+      
+
+    
+         
+         
+    
+         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewBvTitle"
+         android:text="buy volume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditBv"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>      
+              
+       
+          <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewSvTitle"
+         android:text="sell volume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+     <EditText android:id="@+id/textEditSv"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>   
+    
+          
+          
+       
+           
+     <TextView android:id="@+id/textViewReportTitle"
+         android:text="daily report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+           
+        />
+     
+     <EditText android:id="@+id/textEditReport"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"           
+             android:singleLine="true"     
+              
+   /> 
+     
+
+    
+              <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           
+     <TextView android:id="@+id/textViewBuysTitle"
+         android:text="buys"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+      <TextView android:id="@+id/textViewSellsTitle"
+         android:text="sells"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+           android:layout_weight="1"
+        />
+     
+    </LinearLayout>
+     
+     
+         
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+           
+      <EditText android:id="@+id/textEditBuys"
+             android:layout_width="0dp"
+             android:layout_height="fill_parent"           
+                  android:inputType="textMultiLine"  
+                android:layout_weight="1"  
+   /> 
+     
+     <EditText android:id="@+id/textEditSells"
+             android:layout_width="0dp"
+             android:layout_height="fill_parent"           
+                android:inputType="textMultiLine"     
+                android:layout_weight="1"  
+   /> 
+     
+    </LinearLayout>
+     
+     
+    
+    
+        
+        
+</LinearLayout>
+     
