@@ -1,3 +1,32 @@
+20160112
+
+
+ fund db
+
+ create table fund(
+ id integer primary key autoincrement,
+ report_date varchar(8) not null,
+ hs300index real not null,
+ sab integer not null,
+ mfb integer not null,
+ smv integer not null,
+ cv  integer not null,
+ total integer not null,
+ bv  integer not null,
+ sv  integer not null,
+ result varchar(128) not null,
+ buys text ,
+ sells text
+ )
+
+浮点数精度
+
+20160112|865191|3215.71|604351|33057|16087
+
+
+
+
+
 
 20160104
 

@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.dyyx.androidhello.recv.TestLocalRecv;
+import com.dyyx.androidhello.util.DBUtil;
 import com.dyyx.androidhello.util.DyyxCommUtil;
 import com.dyyx.androidhello.util.LogUtil;
 
@@ -46,6 +47,7 @@ public class HelloApp extends Application {
 		super.onTerminate();
 		LogUtil.log("HelloApp", "HelloApp.onTerminate");
 		lbm.unregisterReceiver(testLocalRecv);
+		DBUtil.close(DBUtil.getDatabase());
 	}
 
 	public static Context getContext() {
