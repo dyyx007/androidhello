@@ -7,8 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class DyyxCommUtil {
@@ -44,6 +46,45 @@ public class DyyxCommUtil {
 	public static int getInt(String s, int def) {
 		try {
 			return Integer.parseInt(s);
+		} catch (Throwable e) {
+			return def;
+		}
+	}
+	
+	public static Integer getIntObj(String s, Integer def) {
+		try {
+			return Integer.parseInt(s);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+	
+	public static double getDouble(String s, double def) {
+		try {
+			return Double.parseDouble(s);
+		} catch (Throwable e) {
+			return def;
+		}
+	}
+	
+	public static long getLong(String s, long def) {
+		try {
+			return Long.parseLong(s);
+		} catch (Throwable e) {
+			return def;
+		}
+	}
+	
+	public static Date getDate(String str, String format,Date def) {
+		if(isBlank(str)){
+			return null;
+		}
+		if(isBlank(format)){
+			format = DATE_TIME_FORMAT;
+		}
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat(format);
+			return sdf.parse(str);
 		} catch (Throwable e) {
 			return def;
 		}
@@ -127,6 +168,40 @@ public class DyyxCommUtil {
     	}
     	
     	return sb.toString();
+    }
+    
+    public static List<String> split(String str, String sep) {
+		if (str == null) {
+			return null;
+		}
+		if(sep==null || sep==""){
+			sep = ",";
+		}
+		//if (sep == null || sep.length() < 1) {
+		//	return null;
+		//}
+		List<String> list = new ArrayList<String>();
+		int fromIndex = 0;
+		//int len = str.length();
+		int sepLen = sep.length();
+		int pos = 0;
+		String tmp = null;
+		// a,b,c
+		while (true) {
+			pos = str.indexOf(sep, fromIndex);
+			if (pos < 0) {
+				list.add(str.substring(fromIndex));
+				break;
+			}
+			tmp = str.substring(fromIndex, pos);		
+			list.add(tmp);
+			fromIndex = fromIndex + tmp.length() + sepLen;
+		}
+		return list;
+	}
+    
+    public static String replaceAll(String str,String findStr,String replaceStr){
+    	return null;
     }
     
 

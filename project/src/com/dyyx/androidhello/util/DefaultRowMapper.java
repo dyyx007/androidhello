@@ -20,7 +20,7 @@ public class DefaultRowMapper implements RowMapper<Map<String,String>>{
 		buildColumnInfo(cursor);
 		
 		Map<String,String> m = new HashMap<String,String>();
-		
+		//  columnIndex the zero-based index of the target column
 		for(int i=0;i<columnCount;i++){
 			m.put(columnNames[i], cursor.getString(i));
 		}
@@ -53,8 +53,7 @@ public class DefaultRowMapper implements RowMapper<Map<String,String>>{
 		
 		this.columnCount = columnCountTmp;
 		this.columnNames = columnNamesTmp;
-	
-		
+
 		
 	}
 }

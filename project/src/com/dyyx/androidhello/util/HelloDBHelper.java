@@ -46,7 +46,7 @@ public class HelloDBHelper extends SQLiteOpenHelper {
 		StringBuilder sb = new StringBuilder();
 		sb.append("create table fund(");
 		sb.append("id integer primary key autoincrement,");
-		sb.append("report_date varchar(8) not null,");
+		sb.append("report_date varchar(8) not null UNIQUE,");
 		sb.append("hs300index real not null,");
 		sb.append("sab integer not null,");
 		sb.append("mfb integer not null,");
@@ -54,7 +54,7 @@ public class HelloDBHelper extends SQLiteOpenHelper {
 		sb.append("cv  integer not null,");
 		sb.append("bv  integer not null,");
 		sb.append("sv  integer not null,");
-		sb.append("result varchar(128) not null,");
+		sb.append("report varchar(128) not null,");
 		sb.append("buys text,");
 		sb.append("sells text");
 		sb.append(")");
