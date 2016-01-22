@@ -1,6 +1,11 @@
 
 20160122
 
+计划做   搜索列表和商品详情页
+JVM致命错误日志 hs_err_pid.log
+hs_err_pid3712.log
+
+
 样式 主题
 数据库操作封装 RowMapper
  Cursor到数据对象的映射 
@@ -84,6 +89,8 @@ listView.setOnScrollListener(new PauseOnScrollListener(bitmapUtils, false, true)
 listView.setOnScrollListener(new PauseOnScrollListener(bitmapUtils, false, true, customListener));
 
 https://github.com/wyouflf/xUtils
+
+
 
 
 20160121
