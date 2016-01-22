@@ -34,20 +34,52 @@ public class DBUtil {
 	 */
 
 	public static void executeSql(String sql, Object[] params) {
-		db.execSQL(sql, params);
+		// java.lang.IllegalArgumentException:Empty bindArgs
+		if(params==null || params.length<=0){
+			db.execSQL(sql);
+		}else{
+			db.execSQL(sql, params);			
+		}
+	
 	}
 
-	public static Cursor query(String sql, String[] params) {
-		Cursor cursor = db.rawQuery(sql, params);
+	public static Cursor query(String sql, String[] params) {	
+		return db.rawQuery(sql, params);
+	}
 	
-		return cursor;
+	public static ColumnInfo getColumnInfo(String sql, String[] params) {
+		return getColumnInfo(sql,params,0);	
+	}
+	
+	public static ColumnInfo getColumnInfo(String sql, String[] params,int limit) {
+		Cursor cursor = null;
+		try {
+			if(limit<0){
+				limit = 0;
+			}
+			String sqltmp = sql.toLowerCase();
+			
+			if(sqltmp.indexOf(" limit ")<=0 && limit>0){
+				sql = sql + " limit "+limit;
+			}
+			
+			cursor = db.rawQuery(sql, params);
+			if(cursor==null){
+				return null;
+			}
+			boolean hasNext = cursor.moveToFirst();
+			
+			return getColumnInfo(cursor);
+		}finally{
+			close(cursor);
+		}
 	}
 
 	public static List query(String sql, String[] params, RowMapper rowMapper) {
 		Cursor cursor = null;
 
 		try {
-			cursor = db.rawQuery(sql, params);
+			cursor = query(sql, params);
 			if (cursor == null) {
 				return null;
 			}
@@ -73,6 +105,8 @@ public class DBUtil {
 			close(cursor);
 		}
 	}
+	
+	
 
 	public static void close(Closeable o) {
 		if (o == null) {
@@ -85,6 +119,73 @@ public class DBUtil {
 		}
 	}
 	
+	public static ColumnInfo getColumnInfo(Cursor cursor){
+		return getColumnInfo(cursor,true);
+	}
 	
+	public static ColumnInfo getColumnInfo(Cursor cursor,boolean getType){
+		if(cursor==null){
+			return null;
+		}
+		ColumnInfo info = new ColumnInfo();
+		
+		int columnCountTmp = cursor.getColumnCount();
+		if(columnCountTmp<=0){
+			throw new RuntimeException("columnCount error,"+columnCountTmp);
+		}
+		String[]columnNamesTmp = new String[columnCountTmp];
+		String[]rawColumnNamesTmp =  new String[columnCountTmp];
+		int[] typesTmp = new int[columnCountTmp];
+		
+		String columnName = null;
+		for(int i =0;i<columnCountTmp;i++){
+			
+			if (getType) {
+				try {
+					typesTmp[i] = cursor.getType(i);
+				} catch (Throwable e) {
+					// 结果集为空时会报错 android.database.CursorIndexOutOfBoundsException
+					typesTmp[i] = -1;
+				}
+			}
+			
+			
+			columnName =  cursor.getColumnName(i);
+			rawColumnNamesTmp[i] = columnName;
+			
+			if(DyyxCommUtil.isBlank(columnName)){
+				columnName = HelloConst.DEFAULT_COLUMN_NAME_PREFIX+i;
+			}
+			columnName = columnName.toLowerCase();
+			columnNamesTmp[i] = columnName;
+			
+		}
+		
+		info.columnCount = columnCountTmp;
+		info.columnNames = columnNamesTmp;
+		info.rawColumnNames = rawColumnNamesTmp;
+		info.types = typesTmp;
+		
+		return info;
+		
+	}
+	
+	public static class ColumnInfo{
+		
+		public String[]columnNames = null;
+		public int columnCount = 0;
+		public String[]rawColumnNames = null;
+		public int[] types = null;
+		
+		@Override
+		public String toString(){
+			StringBuilder sb = new StringBuilder();
+			sb.append("columnCount="+columnCount);
+			sb.append(";\n rawColumnNames="+DyyxCommUtil.join(rawColumnNames, ","));
+			sb.append(";\n columnNames="+DyyxCommUtil.join(columnNames, ","));
+			sb.append(";\n types="+DyyxCommUtil.join(types, ","));
+			return sb.toString();
+		}
+	}
 
 }

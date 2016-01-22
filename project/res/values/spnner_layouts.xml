@@ -33,6 +33,7 @@
     <item>Sensor</item> 
     <item>UrlSchema</item>  
     <item>Fund</item>  
+    <item>DB</item> 
     
 </string-array> 
 

@@ -170,6 +170,59 @@ public class DyyxCommUtil {
     	return sb.toString();
     }
     
+    public static String join(Object[]objs,String sep){
+    	if(objs==null){
+    		return null;
+    	}
+    	boolean isfirst = true;
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for(Object item:objs){
+    		
+    	    if(isfirst){
+    	    	isfirst = false;
+    	    }else{
+    	    	if(sep!=null){
+    	    	     sb.append(sep);
+    	    	}
+    	    }
+
+    		if(item==null){
+    			
+    		}else{
+    			sb.append(item);
+    		}
+    	
+    	}
+    	
+    	return sb.toString();
+    }
+    
+    
+    public static String join(int[]objs,String sep){
+    	if(objs==null){
+    		return null;
+    	}
+    	boolean isfirst = true;
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for(int item:objs){
+    		
+    	    if(isfirst){
+    	    	isfirst = false;
+    	    }else{
+    	    	if(sep!=null){
+    	    	     sb.append(sep);
+    	    	}
+    	    }
+    		sb.append(item);
+    		  	
+    	}
+    	
+    	return sb.toString();
+    }
+    
+    
     public static List<String> split(String str, String sep) {
 		if (str == null) {
 			return null;
@@ -236,6 +289,25 @@ public class DyyxCommUtil {
 	
 	public static void x(){
 		
+		
+	}
+	
+	public static String getTraceInfo(Throwable e){
+		if(e==null){
+			return null;
+		}
+		ByteArrayOutputStream buf = null;
+		try{
+		buf = new java.io.ByteArrayOutputStream();
+		e.printStackTrace(new java.io.PrintWriter(buf, true));
+		String s = buf.toString();
+
+		return s;
+		}catch(Throwable e2){
+			return e+"";
+		}finally{
+			close(buf);
+		}
 		
 	}
 

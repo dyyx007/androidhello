@@ -10,7 +10,7 @@ public class DefaultRowMapper implements RowMapper<Map<String,String>>{
 	
 	private String[]columnNames = null;
 	private int columnCount = 0;
-
+	private String[]rawColumnNames = null;
 	
 	
 	public Map<String,String> getObject(Cursor cursor){
@@ -38,12 +38,14 @@ public class DefaultRowMapper implements RowMapper<Map<String,String>>{
 			throw new RuntimeException("columnCount error,"+columnCountTmp);
 		}
 		String[]columnNamesTmp = new String[columnCountTmp];
-
+		String[]rawColumnNamesTmp =  new String[columnCountTmp];
 		
 		
 		String columnName = null;
 		for(int i =0;i<columnCountTmp;i++){
 			columnName =  cursor.getColumnName(i);
+			rawColumnNamesTmp[i] = columnName;
+			
 			if(DyyxCommUtil.isBlank(columnName)){
 				columnName = HelloConst.DEFAULT_COLUMN_NAME_PREFIX+i;
 			}
@@ -53,7 +55,21 @@ public class DefaultRowMapper implements RowMapper<Map<String,String>>{
 		
 		this.columnCount = columnCountTmp;
 		this.columnNames = columnNamesTmp;
-
+		this.rawColumnNames = rawColumnNamesTmp;
 		
 	}
+
+	public String[] getColumnNames() {
+		return columnNames;
+	}
+
+	public int getColumnCount() {
+		return columnCount;
+	}
+
+	public String[] getRawColumnNames() {
+		return rawColumnNames;
+	}
+	
+	
 }

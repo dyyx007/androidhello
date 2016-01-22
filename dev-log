@@ -1,3 +1,69 @@
+
+20160122
+
+样式 主题
+数据库操作封装 RowMapper
+ Cursor到数据对象的映射 
+  列元数据
+  时间字段处理 date  datetime     时间可以用毫秒来处理 存数字
+   数据对象字段与数据库字段一一对应
+   按字段 生成 insert update 语句 
+insert update 功能封装 
+
+fund date字段校验加强
+
+SQLite Limit 子句
+
+LIMIT [no of rows]
+LIMIT [no of rows] OFFSET [row num]
+
+DBUtil add getColumnInfo
+
+
+
+AndroidManifest.xml
+application      android:theme="@android:style/Theme.Dialog" 
+设置之后 变成了对话框
+设置成白色背景  android:theme="@android:style/Theme.Light" 
+
+ Android系统自带样式
+http://blog.csdn.net/hongya1109110121/article/details/11985545
+
+
+ DBActivity  数据库操作测试
+
+ sqllite 查看所有表
+ 查看建表语句 查看表结构 字段 类型等
+
+
+android.database.CursorIndexOutOfBoundsException
+java.lang.IllegalArgumentException:Empty bindArgs
+
+字段类型
+
+ /** Value returned by {@link #getType(int)} if the specified column is null */
+    static final int FIELD_TYPE_NULL = 0;
+
+    /** Value returned by {@link #getType(int)} if the specified  column type is integer */
+    static final int FIELD_TYPE_INTEGER = 1;
+
+    /** Value returned by {@link #getType(int)} if the specified column type is float */
+    static final int FIELD_TYPE_FLOAT = 2;
+
+    /** Value returned by {@link #getType(int)} if the specified column type is string */
+    static final int FIELD_TYPE_STRING = 3;
+
+    /** Value returned by {@link #getType(int)} if the specified column type is blob */
+    static final int FIELD_TYPE_BLOB = 4;
+
+
+
+
+20160121
+
+add fund save query 
+
+
 20160112
 
 

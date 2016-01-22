@@ -23,7 +23,7 @@ public class FundActivity extends BaseActivity {
 	Button btnRead = null;
 	Button btnReport = null;
 	Button btnSave = null;
-	Button btnQuery = null;
+	//Button btnQuery = null;
 	
 	
 	EditText textEditHs300 = null;
@@ -81,10 +81,9 @@ public class FundActivity extends BaseActivity {
 
 
 			String date = textEditDate.getText().toString();
-			
-			Date dateTime = DyyxCommUtil.getDate(date, DyyxCommUtil.FUND_DATE_FORMAT,null);
-			if(dateTime==null){
-				//throw new RuntimeException("date error,date="+date);
+			 		
+			if(!fundDateCheck(date)){
+	
 				String msg = "date error,date="+date;
 				Toast.makeText(FundActivity.this, msg,Toast.LENGTH_SHORT).show(); 
 				return;
@@ -144,13 +143,37 @@ public class FundActivity extends BaseActivity {
 			return;
 		}
 		
-		if (vid == R.id.btnQuery) {
-            
-			
-			return;
-		}
+		
 
 	}
+	
+	
+	private static boolean fundDateCheck(String s){
+		if(DyyxCommUtil.isBlank(s)){
+			return false;
+		}
+		s = s.trim();
+		int len = s.length();
+		if(len!=8){
+			return false;
+		}
+		for(int i=0;i<len;i++){
+			if(!Character.isDigit(s.charAt(i))){
+				return false;
+			}
+		}
+		Date d = DyyxCommUtil.getDate(s, DyyxCommUtil.FUND_DATE_FORMAT,null);
+		if(d==null){
+			return false;
+		}
+		String tmp = DyyxCommUtil.getDateString(d,DyyxCommUtil.FUND_DATE_FORMAT);
+		if(!s.equals(tmp)){
+			return false;
+		}
+		
+		return true;
+	}
+	
 	
 	
 	private static class TradeDTO{
@@ -255,16 +278,15 @@ public class FundActivity extends BaseActivity {
 	
 	
 	
-	private FundDTO getFundDTO(){
+	private FundDTO getFundDTO() {
 		FundDTO dto = new FundDTO();
-		
+
 		String date = textEditDate.getText().toString();
-		
-		Date dateTime = DyyxCommUtil.getDate(date, DyyxCommUtil.FUND_DATE_FORMAT,null);
-		if(dateTime==null){
-			throw new RuntimeException("date error,date="+date);
+
+		if (!fundDateCheck(date)) {
+			throw new RuntimeException("date error,date=" + date);
 		}
-		
+
 		dto.date = date;
 		
 		double hs300index = DyyxCommUtil.getDouble(textEditHs300.getText().toString(), 0);
