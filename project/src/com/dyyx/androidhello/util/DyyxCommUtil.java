@@ -170,6 +170,31 @@ public class DyyxCommUtil {
     	return sb.toString();
     }
     
+    public static String repeat(String str,int num,String sep){
+    	if(num<=0){
+    		return null;
+    	}
+    	boolean isfirst = true;
+    	StringBuilder sb = new StringBuilder();
+    	for(int i=0;i<num;i++){
+    		
+    		 if(isfirst){
+     	    	isfirst = false;
+     	    }else{
+     	    	if(sep!=null){
+     	    	     sb.append(sep);
+     	    	}
+     	    }
+     			
+     		if(str!=null){
+     			sb.append(str);
+     		}
+    	}
+    	
+    	return sb.toString();
+    	
+    }
+    
     public static String join(Object[]objs,String sep){
     	if(objs==null){
     		return null;

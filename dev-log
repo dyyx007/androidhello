@@ -57,6 +57,33 @@ java.lang.IllegalArgumentException:Empty bindArgs
     static final int FIELD_TYPE_BLOB = 4;
 
 
+Android XUtils 
+http://blog.csdn.net/rain_butterfly/article/details/37812371
+
+
+DbUtils  ORM
+ViewUtils  注解方式进行UI绑定和事件绑定。无需findViewById和setClickListener等
+HttpUtils 
+BitmapUtils
+LogUtils
+
+
+BitmapUtils bitmapUtils = new BitmapUtils(this);
+
+// 加载网络图片
+bitmapUtils.display(testImageView, "http://bbs.lidroid.com/static/image/common/logo.png");
+
+// 加载本地图片(路径以/开头， 绝对路径)
+bitmapUtils.display(testImageView, "/sdcard/test.jpg");
+
+// 加载assets中的图片(路径以assets开头)
+bitmapUtils.display(testImageView, "assets/img/wallpaper.jpg");
+
+// 使用ListView等容器展示图片时可通过PauseOnScrollListener控制滑动和快速滑动过程中时候暂停加载图片
+listView.setOnScrollListener(new PauseOnScrollListener(bitmapUtils, false, true));
+listView.setOnScrollListener(new PauseOnScrollListener(bitmapUtils, false, true, customListener));
+
+https://github.com/wyouflf/xUtils
 
 
 20160121

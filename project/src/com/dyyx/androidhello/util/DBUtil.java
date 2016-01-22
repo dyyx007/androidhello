@@ -187,5 +187,65 @@ public class DBUtil {
 			return sb.toString();
 		}
 	}
+	
+	public static String getInsertSql(String table,List<String> columns){
+		if(DyyxCommUtil.isBlank(table)){
+			throw new RuntimeException("table is blank");
+		}
+		if(columns==null || columns.isEmpty()){
+			throw new RuntimeException("columns is empty");
+		}
+		int num = columns.size();
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("insert into ").append(table);
+		sb.append("(").append(DyyxCommUtil.join(columns, ","));
+		sb.append(")");
+		sb.append(" values(");
+		sb.append(DyyxCommUtil.repeat("?", num, ","));
+		sb.append(")");
+		
+		return sb.toString();
+	}
+	
+	public static String getUpdateSql(String table,List<String> columns,List<String> selectColumns){
+		if(DyyxCommUtil.isBlank(table)){
+			throw new RuntimeException("table is blank");
+		}
+		if(columns==null || columns.isEmpty()){
+			throw new RuntimeException("columns is empty");
+		}
+		if(selectColumns==null || selectColumns.isEmpty()){
+			throw new RuntimeException("selectColumns is empty");
+		}
+		
+		
+	
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("update ").append(table);
+		sb.append("set ").append(getColumnUpdateSql(columns));
+		sb.append(" where ");
+		sb.append(getColumnUpdateSql(selectColumns));
+		
+		
+		return sb.toString();
+	}
+	
+	private static String getColumnUpdateSql(List<String> columns){
+		int num = columns.size();
+		boolean isfirst = true;
+		StringBuilder sb = new StringBuilder();
+		
+		for(String item:columns){
+			if(isfirst){
+				isfirst=false;
+			}else{
+				sb.append(",");
+			}
+			sb.append(item).append("=?");			
+		}
+		return sb.toString();
+	}
 
 }
