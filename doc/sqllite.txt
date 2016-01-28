@@ -1,0 +1,55 @@
+
+
+
+
+
+5种存储类别
+
+
+
+NULL          空值
+INTEGER       带符号整数，根据存入的数值的大小占据1,2,3,4,6或者8个字节
+REAL          浮点数，采用8byte（即双精度）的IEEE格式表示
+TEXT          字符串文本，采用数据库的编码（UTF-8，UTF-16BE 或者UTF-16LE）
+BLOB          无类型，可用于保存二进制文件
+
+
+没有独立的布尔存储类型，布尔值被存储为INTEGER类别 1 true  0 false 
+
+没有单独设立存储类型来存储 日期，时间， 或者 日期时间
+
+内置的 “时间，日期 函数”（Date And Time Functions）能够以 TEXT，REAL 或者 INTEGER 类别来存储时间日期。
+
+   TEXT        遵循ISO8601 字符串（"YYYY-MM-DD HH:MMSS:SSS")
+   REAL        按照公历，从现在到格林威治时间的 November 24 B.C
+   INTEGER     按照Unix系统时间，从1970-01-01 00:00:00 UTC 到现在的秒数
+
+
+类型亲和性
+
+数据库中的每一列都被指定了下面所列出的类型亲和性中的一个：
+               TEXT
+               NUMERIC
+               INTEGER
+               REAL
+               NONE
+
+
+SQLite使用的弱数据类型，它将能够存放的数据分：空值（NULL），整数（INTEGER），浮点数（REAL），字符串文本（TEXT），无类型（BLOB），数据的类型是由要存储的数值自身决定的，与列的类型声明无关，事实上，完全可以不声明列的类型
+
+create table scr( name, age );
+insert into scr values( "duwei", 20 );
+insert into scr values( 20, "youhongtao");
+select * from scr;
+duwei | 20
+20 | youhongtao   
+但是为了代码的可阅读性以及兼容其他数据库引擎，不建议缺省列的类型声明。
+
+
+
+
+
+
+
+
+

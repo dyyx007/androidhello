@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.dyyx.androidhello.HelloApp;
 
 public class DBUtil {
-	
+
 	private static final int VERSION = 1;
 	private static final String NAME = "hellodb";
 
@@ -35,42 +36,56 @@ public class DBUtil {
 
 	public static void executeSql(String sql, Object[] params) {
 		// java.lang.IllegalArgumentException:Empty bindArgs
-		if(params==null || params.length<=0){
+		if (params == null || params.length <= 0) {
 			db.execSQL(sql);
-		}else{
-			db.execSQL(sql, params);			
+		} else {
+			db.execSQL(sql, params);
 		}
-	
+
 	}
 
-	public static Cursor query(String sql, String[] params) {	
+	public static Cursor query(String sql, String[] params) {
 		return db.rawQuery(sql, params);
 	}
-	
-	public static ColumnInfo getColumnInfo(String sql, String[] params) {
-		return getColumnInfo(sql,params,0);	
+
+	public static long insert(String table, ContentValues values, String nullColumnHack) {
+		
+		return db.insert(table, nullColumnHack, values);
 	}
-	
-	public static ColumnInfo getColumnInfo(String sql, String[] params,int limit) {
+
+	public static int updateWithOnConflict(String table, ContentValues values, String whereClause, String[] whereArgs,
+											int conflictAlgorithm) {
+		return db.updateWithOnConflict(table, values, whereClause, whereArgs, conflictAlgorithm);
+	}
+
+	public static int update(String table, ContentValues values, String whereClause, String[] whereArgs) {
+		return db.update(table, values, whereClause, whereArgs);
+	}
+
+	public static ColumnInfo getColumnInfo(String sql, String[] params) {
+		return getColumnInfo(sql, params, 0);
+	}
+
+	public static ColumnInfo getColumnInfo(String sql, String[] params, int limit) {
 		Cursor cursor = null;
 		try {
-			if(limit<0){
+			if (limit < 0) {
 				limit = 0;
 			}
 			String sqltmp = sql.toLowerCase();
-			
-			if(sqltmp.indexOf(" limit ")<=0 && limit>0){
-				sql = sql + " limit "+limit;
+
+			if (sqltmp.indexOf(" limit ") <= 0 && limit > 0) {
+				sql = sql + " limit " + limit;
 			}
-			
+
 			cursor = db.rawQuery(sql, params);
-			if(cursor==null){
+			if (cursor == null) {
 				return null;
 			}
 			boolean hasNext = cursor.moveToFirst();
-			
+
 			return getColumnInfo(cursor);
-		}finally{
+		} finally {
 			close(cursor);
 		}
 	}
@@ -105,8 +120,6 @@ public class DBUtil {
 			close(cursor);
 		}
 	}
-	
-	
 
 	public static void close(Closeable o) {
 		if (o == null) {
@@ -118,28 +131,28 @@ public class DBUtil {
 			//
 		}
 	}
-	
-	public static ColumnInfo getColumnInfo(Cursor cursor){
-		return getColumnInfo(cursor,true);
+
+	public static ColumnInfo getColumnInfo(Cursor cursor) {
+		return getColumnInfo(cursor, true);
 	}
-	
-	public static ColumnInfo getColumnInfo(Cursor cursor,boolean getType){
-		if(cursor==null){
+
+	public static ColumnInfo getColumnInfo(Cursor cursor, boolean getType) {
+		if (cursor == null) {
 			return null;
 		}
 		ColumnInfo info = new ColumnInfo();
-		
+
 		int columnCountTmp = cursor.getColumnCount();
-		if(columnCountTmp<=0){
-			throw new RuntimeException("columnCount error,"+columnCountTmp);
+		if (columnCountTmp <= 0) {
+			throw new RuntimeException("columnCount error," + columnCountTmp);
 		}
-		String[]columnNamesTmp = new String[columnCountTmp];
-		String[]rawColumnNamesTmp =  new String[columnCountTmp];
+		String[] columnNamesTmp = new String[columnCountTmp];
+		String[] rawColumnNamesTmp = new String[columnCountTmp];
 		int[] typesTmp = new int[columnCountTmp];
-		
+
 		String columnName = null;
-		for(int i =0;i<columnCountTmp;i++){
-			
+		for (int i = 0; i < columnCountTmp; i++) {
+
 			if (getType) {
 				try {
 					typesTmp[i] = cursor.getType(i);
@@ -148,102 +161,98 @@ public class DBUtil {
 					typesTmp[i] = -1;
 				}
 			}
-			
-			
-			columnName =  cursor.getColumnName(i);
+
+			columnName = cursor.getColumnName(i);
 			rawColumnNamesTmp[i] = columnName;
-			
-			if(DyyxCommUtil.isBlank(columnName)){
-				columnName = HelloConst.DEFAULT_COLUMN_NAME_PREFIX+i;
+
+			if (DyyxCommUtil.isBlank(columnName)) {
+				columnName = HelloConst.DEFAULT_COLUMN_NAME_PREFIX + i;
 			}
 			columnName = columnName.toLowerCase();
 			columnNamesTmp[i] = columnName;
-			
+
 		}
-		
+
 		info.columnCount = columnCountTmp;
 		info.columnNames = columnNamesTmp;
 		info.rawColumnNames = rawColumnNamesTmp;
 		info.types = typesTmp;
-		
+
 		return info;
-		
+
 	}
-	
-	public static class ColumnInfo{
-		
-		public String[]columnNames = null;
+
+	public static class ColumnInfo {
+
+		public String[] columnNames = null;
 		public int columnCount = 0;
-		public String[]rawColumnNames = null;
+		public String[] rawColumnNames = null;
 		public int[] types = null;
-		
+
 		@Override
-		public String toString(){
+		public String toString() {
 			StringBuilder sb = new StringBuilder();
-			sb.append("columnCount="+columnCount);
-			sb.append(";\n rawColumnNames="+DyyxCommUtil.join(rawColumnNames, ","));
-			sb.append(";\n columnNames="+DyyxCommUtil.join(columnNames, ","));
-			sb.append(";\n types="+DyyxCommUtil.join(types, ","));
+			sb.append("columnCount=" + columnCount);
+			sb.append(";\n rawColumnNames=" + DyyxCommUtil.join(rawColumnNames, ","));
+			sb.append(";\n columnNames=" + DyyxCommUtil.join(columnNames, ","));
+			sb.append(";\n types=" + DyyxCommUtil.join(types, ","));
 			return sb.toString();
 		}
 	}
-	
-	public static String getInsertSql(String table,List<String> columns){
-		if(DyyxCommUtil.isBlank(table)){
+
+	public static String getInsertSql(String table, List<String> columns) {
+		if (DyyxCommUtil.isBlank(table)) {
 			throw new RuntimeException("table is blank");
 		}
-		if(columns==null || columns.isEmpty()){
+		if (columns == null || columns.isEmpty()) {
 			throw new RuntimeException("columns is empty");
 		}
 		int num = columns.size();
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append("insert into ").append(table);
 		sb.append("(").append(DyyxCommUtil.join(columns, ","));
 		sb.append(")");
 		sb.append(" values(");
 		sb.append(DyyxCommUtil.repeat("?", num, ","));
 		sb.append(")");
-		
+
 		return sb.toString();
 	}
-	
-	public static String getUpdateSql(String table,List<String> columns,List<String> selectColumns){
-		if(DyyxCommUtil.isBlank(table)){
+
+	public static String getUpdateSql(String table, List<String> columns, List<String> selectColumns) {
+		if (DyyxCommUtil.isBlank(table)) {
 			throw new RuntimeException("table is blank");
 		}
-		if(columns==null || columns.isEmpty()){
+		if (columns == null || columns.isEmpty()) {
 			throw new RuntimeException("columns is empty");
 		}
-		if(selectColumns==null || selectColumns.isEmpty()){
+		if (selectColumns == null || selectColumns.isEmpty()) {
 			throw new RuntimeException("selectColumns is empty");
 		}
-		
-		
-	
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append("update ").append(table);
 		sb.append("set ").append(getColumnUpdateSql(columns));
 		sb.append(" where ");
 		sb.append(getColumnUpdateSql(selectColumns));
-		
-		
+
 		return sb.toString();
 	}
-	
-	private static String getColumnUpdateSql(List<String> columns){
+
+	private static String getColumnUpdateSql(List<String> columns) {
 		int num = columns.size();
 		boolean isfirst = true;
 		StringBuilder sb = new StringBuilder();
-		
-		for(String item:columns){
-			if(isfirst){
-				isfirst=false;
-			}else{
+
+		for (String item : columns) {
+			if (isfirst) {
+				isfirst = false;
+			} else {
 				sb.append(",");
 			}
-			sb.append(item).append("=?");			
+			sb.append(item).append("=?");
 		}
 		return sb.toString();
 	}

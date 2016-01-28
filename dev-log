@@ -7,6 +7,25 @@ Android 联系人的读取，查询，添加
 http://www.cnblogs.com/jxgxy/archive/2012/07/28/2613069.html
 
 
+test table 
+pet(id,name,age,weight,desc)
+
+ NULL  整数 INTEGER  浮点数 REAL  字符串 TEXt  无类型 BLOB
+
+
+create  table  pet  (
+  id INTEGER primary key autoincrement,
+  name text not null unqiue,
+  age  INTEGER not null,
+  weight real
+) 
+// ERROR
+  name text not null unqiue
+  // OK
+    name text  unqiue
+unqiue 约束貌似没用
+
+
 
 20160125
 
