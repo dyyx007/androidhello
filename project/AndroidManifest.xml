@@ -87,7 +87,7 @@
        
        <activity android:name="com.dyyx.androidhello.FundActivity"/>
        <activity android:name="com.dyyx.androidhello.DBActivity"/>
-             
+       <activity android:name="com.dyyx.androidhello.CommTestActivity"/>   
              
          
     
@@ -149,6 +149,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
+    
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />  
 
     
 </manifest>

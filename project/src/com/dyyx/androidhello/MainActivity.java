@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dyyx.androidhello.base.BaseActivity;
+import com.dyyx.androidhello.util.LogUtil;
 //import android.support.v7.app.ActionBarActivity;
 
 //public class MainActivity extends ActionBarActivity {
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20160122-1333";
+	private static final String VERSION = "20160128-0957";
 	
 	static{
 		
@@ -59,6 +60,7 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("urlschema",UrlSchemaActivity.class);
 		activityMap.put("fund",FundActivity.class);
 		activityMap.put("db",DBActivity.class);
+		activityMap.put("commtest",CommTestActivity.class);
 	}
 	
 	@Override
@@ -109,6 +111,15 @@ public class MainActivity extends BaseActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+	    LogUtil.log(TAG, "onCreateOptionsMenu run");
+	    
+		return true;
+	}
+	
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		super.onPrepareOptionsMenu(menu);
+		LogUtil.log(TAG, "onPrepareOptionsMenu run");
 		return true;
 	}
 
@@ -117,8 +128,12 @@ public class MainActivity extends BaseActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
+		LogUtil.log(TAG, "onOptionsItemSelected run,id="+item.getItemId());
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			
+			LogUtil.log(TAG, "option menu,action_settings run");
+			
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

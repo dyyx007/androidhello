@@ -1,0 +1,177 @@
+
+
+
+Android的菜单分为三种类型：选项菜单(Option Menu)、上下文菜单(Context Menu)、子菜单(Sub Menu)
+
+
+　一.选项菜单
+　　当用户单击设备上的菜单按钮(Menu)，触发事件弹出的菜单就是选项菜单。选项菜单最多只有六个，超过六个第六个就会自动显示 更多 选项来展示显示。
+　　
+    创建方法：
+　　1、覆盖Activity的onCreateOptionsMenu(Menu menu)方法，第一次打开菜单时调用。
+　　2、调用Menu的add()方法添加菜单项(MenuItem)，可以调用MenuItem的setIcon()方法为菜单项设置图标。
+        直接使用 xml文件
+
+	    <?xml version="1.0" encoding="utf-8"?>
+            <menu xmlns:android="http://schemas.android.com/apk/res/android">
+               <item android:id="@+id/menuOption1" android:title="option1"></item>
+               <item android:id="@+id/menuOption2" android:title="option2"></item>
+            </menu>
+
+	        @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+     MenuInflater inflater = getMenuInflater();
+     inflater.inflate(R.menu.menu_option, menu);
+     return super.onCreateOptionsMenu(menu);
+    }
+
+onPrepareOptionsMenu 每次显示菜单时都会调用 可以设置状态等
+
+
+   
+
+　　3、当菜单项(MenuItem)被选中时，覆盖Acitivity的onOptionsMenuSelected()方法响应事件。
+
+
+　　二、上下文菜单
+　　      长按时，弹出的菜单为上下文菜单。
+
+
+　　1、覆盖 onCreateContextMenu()方法，调用Menu的add方法添加菜单项MenuItem
+　　2、覆盖onContextItemSelected()方法，响应菜单单击事件
+　　3、调用registerForContextMenu()方法，为视图注册上下文菜单
+
+　　三、子菜单
+　　子菜单就是将相同功能的分组进行多级显示的一种菜单，比如，Windows的“文件”菜单中就有“新建”，“打开”，“关闭”等子菜单。
+　　创建子菜单的方法
+　　1、覆盖Activity的onCreateOptionsMenu()方法，调用Menu的addSubMenu()方法添加子菜单项
+　　2、调用SubMenu的add()，添加子菜单项
+　　3、覆盖onCreateItemSelected()方法，响应菜单单击事件
+
+public class Main extends Activity {
+// 菜单项ID
+// FIRST为Menu类中的整形常量
+private static final int ITEM1 = Menu.FIRST;
+private static final int ITEM2 = Menu.FIRST + 1;
+private static final int ITEM3 = Menu.FIRST + 2;
+private static final int ITEM4 = Menu.FIRST + 3;
+private static final int ITEM5 = Menu.FIRST + 4;
+private static final int ITEM6 = Menu.FIRST + 5;
+private static final int ITEM7 = Menu.FIRST + 6;
+TextView myTV;
+@Override
+public void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.main);
+myTV = (TextView) findViewById(R.id.myTV);
+// 此时为myTv设置上下文菜单，长按TextView时响应函数
+registerForContextMenu(myTV);
+}
+@Override
+// 点击菜单按钮响应的事件
+public boolean onCreateOptionsMenu(Menu menu) {
+/* 一下代码为选项菜单测试
+// 添加菜单项
+// public abstract MenuItemadd(int groupId, int itemId, int order, CharSequence title)
+// 菜单所在的group，菜单的ID，排列顺序，显示的文字
+// add()方法返回一个MenuItem对象。而setIcon是MenuItem的方法
+menu.add(0, ITEM1, 0, "开始").setIcon(R.drawable.ic_launcher);
+menu.add(0, ITEM2, 0, "开始1");
+menu.add(1, ITEM3, 0, "开始2");
+menu.add(1, ITEM4, 0, "开始3");
+menu.add(1, ITEM5, 0, "开始4");
+// menu.add(0, ITEM6, 0, "开始5");
+// menu.add(0, ITEM7, 0, "开始6");
+*/
+/**
+* 以下代码为添加子菜单的测试代码
+*/
+// 添加子菜单
+SubMenu subFile = menu.addSubMenu("文件");
+SubMenu editFile = menu.addSubMenu("编辑");
+// 为子菜单添加菜单项
+subFile.add(0, ITEM1, 0, "新建");
+subFile.add(0, ITEM2, 0, "打开");
+return true;
+}
+@Override
+// 菜单被选中时触发的事件
+public boolean onOptionsItemSelected(MenuItem item) {
+/*
+// 在此说明一下，Menu相当于一个容器，而MenuItem相当于容器中容纳的东西
+switch(item.getItemId()) {
+case ITEM1:
+// 设置Activity的Title
+setTitle("开始游戏1");
+break;
+case ITEM2:
+setTitle("开始游戏2");
+break;
+case ITEM3:
+setTitle("开始游戏3");
+break;
+case ITEM4:
+setTitle("开始游戏4");
+break;
+case ITEM5:
+setTitle("开始游戏5");
+break;
+case ITEM6:
+setTitle("开始游戏6");
+break;
+case ITEM7:
+setTitle("开始游戏7");
+break;
+}
+*/
+/**
+* 子菜单项响应代码
+*/
+switch(item.getItemId()) {
+case ITEM1:
+// 设置Activity的Title
+setTitle("新建文件");
+break;
+case ITEM2:
+setTitle("打开文件");
+break;
+}
+return true;
+}
+@Override
+// 创建上下文菜单
+public void onCreateContextMenu(ContextMenu menu, View v,
+ContextMenuInfo menuInfo) {
+// 向上下文菜单中添加菜单项
+// 注意此处的menu是ContextMenu
+menu.add(0, ITEM1, 0, "红色背景");
+menu.add(0, ITEM2, 0, "绿色背景");
+menu.add(1, ITEM3, 0, "白色背景");
+}
+@Override
+public boolean onContextItemSelected(MenuItem item) {
+switch(item.getItemId()) {
+case ITEM1:
+myTV.setBackgroundColor(Color.RED);
+break;
+case ITEM2:
+myTV.setBackgroundColor(Color.GREEN);
+break;
+case ITEM3:
+myTV.setBackgroundColor(Color.WHITE);
+break;
+}
+return true;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
