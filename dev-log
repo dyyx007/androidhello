@@ -1,3 +1,23 @@
+20160129
+
+
+create  table  pet( 
+id INTEGER primary key autoincrement,
+name text not null unique,
+age  INTEGER not null,
+weight real
+)
+
+unique 拼写错误 导致唯一约束不生效  unique vs  unqiue
+
+insert时 唯一约束冲突 返回 -1 不报错
+update时 可以设置冲突策略 ，默认 报错  
+android.database.sqlite.SQLiteConstraintException:column name is not unique
+
+
+
+
+
 20160128
 
 android获取联系人总结

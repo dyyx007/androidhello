@@ -27,9 +27,9 @@ public class DBActivity extends BaseActivity {
 		StringBuilder sb = new StringBuilder();
 		sb.append("create  table  pet( \n");
 		sb.append("id INTEGER primary key autoincrement, \n");
-		// name text not null unqiue  error
-		// 
-		sb.append("name text unqiue, \n");
+	
+		// unqiue  unique!!!
+		sb.append("name text not null unique, \n");
 		sb.append("age  INTEGER not null, \n");
 		sb.append("weight real \n");
 		sb.append(")");
@@ -157,7 +157,7 @@ public class DBActivity extends BaseActivity {
 				msg = "pet insert done,id=" + id + ",values=" + values;
 
 			} catch (Throwable e) {
-				msg = "pet insert error,values=" + values + "," + DyyxCommUtil.getTraceInfo(e);
+				msg = "pet insert error,"+e+",values=" + values + "," + DyyxCommUtil.getTraceInfo(e);
 			}
 
 			msg = msg + "," + DyyxCommUtil.getNowDateString();
@@ -184,9 +184,9 @@ public class DBActivity extends BaseActivity {
 				msg = "pet update done,result=" + result + ",values=" + values;
 
 			} catch (Throwable e) {
-				msg = "pet update error,values=" + values + "," + DyyxCommUtil.getTraceInfo(e);
+				msg = "pet update error,"+e+",values=" + values + "," + DyyxCommUtil.getTraceInfo(e);
 			}
-
+        
 			msg = msg + "," + DyyxCommUtil.getNowDateString();
 
 			textEditResult.setText(msg);
@@ -217,14 +217,14 @@ public class DBActivity extends BaseActivity {
 
 			return null;
 		}
-
-		int id = DyyxCommUtil.getInt(list.get(0), 0);
-		int age = DyyxCommUtil.getInt(list.get(2), 0);
+        
+		int id = DyyxCommUtil.getInt(list.get(0), -1);
+		int age = DyyxCommUtil.getInt(list.get(2), -1);
 		String weightStr = list.get(3);
 		
-		double weight = DyyxCommUtil.getDouble(weightStr, 0);
+		double weight = DyyxCommUtil.getDouble(weightStr, -1);
 		
-		if(id<=0 || age<=0 || (!DyyxCommUtil.isBlank(weightStr) && weight<=0)){
+		if(id<=0 || age<0 || weight<0){
 			
 			String msg = "pet data error," + str;
 			textEditResult.setText(msg);
