@@ -34,7 +34,8 @@
     <item>UrlSchema</item>  
     <item>Fund</item>  
     <item>DB</item> 
-      <item>CommTest</item> 
+    <item>CommTest</item> 
+    <item>Img</item> 
     
 </string-array> 
 

@@ -88,7 +88,7 @@
        <activity android:name="com.dyyx.androidhello.FundActivity"/>
        <activity android:name="com.dyyx.androidhello.DBActivity"/>
        <activity android:name="com.dyyx.androidhello.CommTestActivity"/>   
-             
+       <activity android:name="com.dyyx.androidhello.ImgActivity"/>        
          
     
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">

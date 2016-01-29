@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+    
+   <TextView android:id="@+id/textViewTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="image load test"
+        />
+   
+    <EditText android:id="@+id/textEditUrl"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:inputType="textMultiLine"  
+             android:minLines="6"
+             android:maxLines="6"   
+              android:gravity="top|left"    
+       /> 
+       
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+          
+          
+           <Button
+            android:id="@+id/btnLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load" 
+            android:onClick="clickHandle"
+            />
+           
+
+        
+      </LinearLayout>
+      
+      
+   <ImageView android:id="@+id/img01"  
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content"
+         android:adjustViewBounds="true"
+         android:minHeight="50dp"
+         android:minWidth="50dp"
+         android:src="@drawable/mm01"  
+          /> 
+  
+   
+
+</LinearLayout>
