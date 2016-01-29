@@ -15,6 +15,31 @@ update时 可以设置冲突策略 ，默认 报错
 android.database.sqlite.SQLiteConstraintException:column name is not unique
 
 
+android.graphics.Bitmap;
+android.graphics.BitmapFactory;
+InputStream is = null;
+Bitmap     bitmap = BitmapFactory.decodeStream(is);
+imageView.setImageBitmap(bitmap);
+
+Android Listview异步动态加载网络图片
+http://www.oschina.net/code/snippet_176897_7207
+
+
+Android ListView从网络获取图片及文字显示  ok
+http://www.cnblogs.com/pricks/p/3922066.html
+
+http://www.cnblogs.com/pricks/default.html?page=2
+
+
+
+ android 网络图片双缓存
+http://blog.csdn.net/a79412906/article/details/10180583
+
+Android图片管理组件（双缓存+异步加载） ok 
+http://www.oschina.net/code/snippet_219356_18887
+https://github.com/yueyueniao2012/multiimagechooser
+
+
 
 
 
