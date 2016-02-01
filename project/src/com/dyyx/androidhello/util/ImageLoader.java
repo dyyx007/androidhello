@@ -3,16 +3,32 @@ package com.dyyx.androidhello.util;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
 import android.widget.ImageView;
 
 public class ImageLoader {
 
 	private static final String TAG = ImageLoader.class.getSimpleName();
 	
+	//private static Map<String,Bitmap> cache = new ConcurrentHashMap<String,Bitmap>();
+	private static Map<String,Bitmap> cache = Collections.synchronizedMap(new HashMap<String,Bitmap>());
+	
+	private static final AtomicLong hit = new AtomicLong(0);
+	private static final AtomicLong miss = new AtomicLong(0);
+	private static final AtomicLong error = new AtomicLong(0);
+	
+	//private static final List<String> urls = Collections.synchronizedList(new ArrayList<String>()) ;
+	
+	
+	// cache  memory  disk 
+	// bitmap size in memory
+	// 
 	
 	// default image
 	// load error image
@@ -46,14 +62,27 @@ public class ImageLoader {
 
 		public void run() {
 			try {
-				Bitmap bitmap = getImageBitmap(url);
-				Handler h = imageView.getHandler();
-				if (h == null) {
-					LogUtil.log(TAG, "imageView handler is null");
-					return;
+				Bitmap bitmap = null;
+				bitmap = cache.get(url);
+				if(bitmap==null){
+				   miss.getAndIncrement();
+				   bitmap = getImageBitmap(url);
+				   if(bitmap!=null){
+					   cache.put(url, bitmap);
+				   }
+				}else{
+				   hit.getAndIncrement();
 				}
+		        //imageView.post(action)
+				//Handler h = imageView.getHandler();
+				//if (h == null) {
+				//	LogUtil.log(TAG, "imageView handler is null");
+				//	return;
+				//}
 				ImageShowRunner r = new ImageShowRunner(imageView, bitmap);
-				h.post(r);
+				//h.post(r);
+				imageView.post(r);
+				
 			} catch (Throwable e) {
 				LogUtil.log(TAG, "ImageLoadThread run error,"+e,e);
 			}
@@ -97,11 +126,21 @@ public class ImageLoader {
 			is = conn.getInputStream();
 			bitmap = BitmapFactory.decodeStream(is);
 		} catch (Throwable e) {
+			error.getAndIncrement();
 			throw new RuntimeException("getImageBitmap error,url=" + url, e);
 		} finally {
 			DyyxCommUtil.close(is);
 		}
 		return bitmap;
+	}
+	
+	public static String getInfo(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("hit="+hit);
+		sb.append(",miss="+miss);
+		sb.append(",error="+error);
+		sb.append(",cacheSize="+cache.size());
+		return sb.toString();
 	}
 
 }
