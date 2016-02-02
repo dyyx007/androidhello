@@ -1,7 +1,9 @@
 package com.dyyx.androidhello;
 
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.dyyx.androidhello.util.DyyxCommUtil;
 import com.dyyx.androidhello.util.HttpCallback;
 import com.dyyx.androidhello.util.HttpUtil;
 import com.dyyx.androidhello.util.ImageLoader;
+import com.dyyx.androidhello.util.NetworkUtil;
 
 public class ImgActivity extends BaseActivity {
 
@@ -39,6 +42,18 @@ public class ImgActivity extends BaseActivity {
 
 	private static int showIndex = 0;
 	private static int itemNum = 0;
+	
+	private static Map<Integer,String> netTypeMap = new HashMap<Integer,String>();
+	
+	private static final int NET_TYPE_WIFI = 1;
+	
+	static{
+		
+		netTypeMap.put(0,"no network");
+		netTypeMap.put(1,"WIFI");
+		netTypeMap.put(2,"3G");
+		netTypeMap.put(3,"2G");
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +70,10 @@ public class ImgActivity extends BaseActivity {
 		int vid = view.getId();
 
 		if (vid == R.id.btnLoad) {
+			
+			if(!wifiCheck()){				
+				return;
+			}
 
 			String url = textEditUrl.getText().toString();
 			if (DyyxCommUtil.isBlank(url)) {
@@ -67,6 +86,10 @@ public class ImgActivity extends BaseActivity {
 		}
 
 		if (vid == R.id.btnSearch) {
+			
+			if(!wifiCheck()){				
+				return;
+			}
 
 			String q = textEditUrl.getText().toString();
 			if (DyyxCommUtil.isBlank(q)) {
@@ -90,6 +113,10 @@ public class ImgActivity extends BaseActivity {
 		}
 
 		if (vid == R.id.btnShow) {
+			
+			if(!wifiCheck()){				
+				return;
+			}
 
 			if (httpResult == null || DyyxCommUtil.isBlank(httpResult.result)) {
 				String msg = "no data,please search";
@@ -132,7 +159,20 @@ public class ImgActivity extends BaseActivity {
 			String s = "showIndex=" + showIndex;
 			s = s + ",itemNum=" + itemNum;
 			s = s + "," + ImageLoader.getInfo();
+			
+			
+			//应用程序最大可用内存 
+	        long maxMemory = Runtime.getRuntime().maxMemory()/1024/1024; 
+	        //应用程序已获得内存 
+	        long totalMemory = Runtime.getRuntime().totalMemory()/1024/1024; 
+	        //应用程序已获得内存中未使用内存 
+	        long freeMemory = Runtime.getRuntime().freeMemory()/1024/1024; 
 
+	        s = s + ",maxMemory=" + maxMemory;
+	        s = s + ",totalMemory=" + totalMemory;
+	        s = s + ",freeMemory=" + freeMemory;
+	        
+	        
 			textEditInfo.setText(s);
 
 			return;
@@ -162,9 +202,34 @@ public class ImgActivity extends BaseActivity {
 			
 			return;
 		}
+	    
+       if (vid == R.id.btnNetType) {
+	    	
+
+           int netType = NetworkUtil.getAPNType(this);
+           String type = netTypeMap.get(netType);
+           if(DyyxCommUtil.isBlank(type)){
+        	   type = "NK";
+           }
+           
+           textEditInfo.setText("network type:"+type);
+			
+			return;
+		}
 	
 	
 
+	}
+	
+	private boolean wifiCheck(){
+		 int netType = NetworkUtil.getAPNType(this);
+		 if(NET_TYPE_WIFI==netType){
+			 return true;
+		 }
+		 
+		 textEditInfo.setText("only for wifi");
+		 
+		 return false;
 	}
 
 	private List<Item> getItems(SearchResult searchResult) {

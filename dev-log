@@ -3,7 +3,30 @@
 
 
 图片缓存没有设置大小 内存溢出 java.lang.OutOfMemoryError
+图片缓存超过70M 内存溢出 
+每个app的内存限制  
+lrucache 软引用 disk缓存 
 
+Android对应用程序内存的限制
+android不同设备单个进程可用内存是不一样的，可以查看/system/build.prop文件。
+dalvik.vm.heapsize=24m
+dalvik.vm.heapgrowthlimit=16m
+
+Runtime.getRuntime().maxMemory()
+
+//应用程序最大可用内存 
+        int maxMemory = ((int) Runtime.getRuntime().maxMemory())/1024/1024; 
+        //应用程序已获得内存 
+        long totalMemory = ((int) Runtime.getRuntime().totalMemory())/1024/1024; 
+        //应用程序已获得内存中未使用内存 
+        long freeMemory = ((int) Runtime.getRuntime().freeMemory())/1024/1024; 
+        System.out.println("---> maxMemory="+maxMemory+"M,totalMemory="+totalMemory+"M,freeMemory="+freeMemory+"M");
+
+
+
+ActivityManager activityManager =(ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+activityManager.getMemoryClass();
+activityManager.getLargeMemoryClass();
 
 
 

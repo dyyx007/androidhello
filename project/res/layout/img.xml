@@ -90,6 +90,14 @@
             android:text="Logs" 
             android:onClick="clickHandle"
             />  
+            
+                                                      <Button
+            android:id="@+id/btnNetType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NetType" 
+            android:onClick="clickHandle"
+            />  
              
                               
              </LinearLayout>

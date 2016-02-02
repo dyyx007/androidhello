@@ -43,6 +43,9 @@ public class SystemInfoActivity extends BaseActivity {
 		
 		sb.append(",x="+x);
 		
+		//int networkType = NetworkUtil.getAPNType(this);
+		
+		
 		textview.setText(sb.toString());
 		
 	}
