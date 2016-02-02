@@ -137,6 +137,33 @@ public class ImgActivity extends BaseActivity {
 
 			return;
 		}
+		
+		if (vid == R.id.btnClearCache) {
+			
+			ImageLoader.clearCache();
+			String msg = "clear cache done,"+DyyxCommUtil.getNowDateString();
+			textEditInfo.setText(msg);
+			return;
+		}
+		
+	    if (vid == R.id.btnResetIndex) {
+	    	
+	    	showIndex = 0;
+			String msg = "shwo index done,"+DyyxCommUtil.getNowDateString();
+			textEditInfo.setText(msg);
+			
+			return;
+		}
+	    
+	    if (vid == R.id.btnLogs) {
+	    	
+	    	String s = ImageLoader.getLogs();
+	    	textEditInfo.setText(s);
+			
+			return;
+		}
+	
+	
 
 	}
 
@@ -174,4 +201,5 @@ public class ImgActivity extends BaseActivity {
 
 		}
 	}
+	
 }
