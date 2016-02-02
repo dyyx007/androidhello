@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -171,6 +173,16 @@ public class ImgActivity extends BaseActivity {
 	        s = s + ",maxMemory=" + maxMemory;
 	        s = s + ",totalMemory=" + totalMemory;
 	        s = s + ",freeMemory=" + freeMemory;
+	        
+	        
+	        ActivityManager manager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);  
+	        // MB
+	        int heapSize = manager.getMemoryClass();  
+	        s = s + ",heapSize=" + heapSize;
+	        // The is the size of the application's Dalvik heap 
+	        // if it has specified  android:largeHeap="true"  in its manifest
+	        int largeHeapSize = manager.getLargeMemoryClass();  
+	        s = s + ",largeHeapSize=" + largeHeapSize;
 	        
 	        
 			textEditInfo.setText(s);

@@ -1,5 +1,13 @@
 
+干货集中营 API  http://gank.io/api
+https://git.oschina.net/dyyx
+
+
+
 20160202
+
+如何播放视频
+
 
 
 图片缓存没有设置大小 内存溢出 java.lang.OutOfMemoryError
@@ -15,12 +23,19 @@ dalvik.vm.heapgrowthlimit=16m
 Runtime.getRuntime().maxMemory()
 
 //应用程序最大可用内存 
-        int maxMemory = ((int) Runtime.getRuntime().maxMemory())/1024/1024; 
+        long maxMemory =   Runtime.getRuntime().maxMemory() /1024/1024; 
         //应用程序已获得内存 
-        long totalMemory = ((int) Runtime.getRuntime().totalMemory())/1024/1024; 
+        long totalMemory =  Runtime.getRuntime().totalMemory() /1024/1024; 
         //应用程序已获得内存中未使用内存 
-        long freeMemory = ((int) Runtime.getRuntime().freeMemory())/1024/1024; 
-        System.out.println("---> maxMemory="+maxMemory+"M,totalMemory="+totalMemory+"M,freeMemory="+freeMemory+"M");
+        long freeMemory =   Runtime.getRuntime().freeMemory() /1024/1024; 
+       
+自己的红米2
+maxMemory=96,totalMemory=96,freeMemory=3,图片缓存大小 76
+
+内存分析工具  内存泄露 
+
+ Android高效加载大图、多图解决方案，有效避免程序OOM
+http://blog.csdn.net/guolin_blog/article/details/9316683
 
 
 
@@ -28,6 +43,17 @@ ActivityManager activityManager =(ActivityManager)context.getSystemService(Conte
 activityManager.getMemoryClass();
 activityManager.getLargeMemoryClass();
 
+
+android:largeHeap="true"
+
+  ActivityManager manager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);  
+  // MB
+  int heapSize = manager.getMemoryClass();  
+
+  // The is the size of the application's Dalvik heap 
+  // if it has specified  android:largeHeap="true"  in its manifest
+  int largeHeapSize = manager.getLargeMemoryClass(); 
+  
 
 
 
