@@ -35,10 +35,41 @@
             android:onClick="clickHandle"
             />
            
+             <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search" 
+            android:onClick="clickHandle"
+            />
+             
+             <Button
+            android:id="@+id/btnShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show" 
+            android:onClick="clickHandle"
+            />  
+                   <Button
+            android:id="@+id/btnInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Info" 
+            android:onClick="clickHandle"
+            />  
 
         
       </LinearLayout>
       
+      
+      <EditText android:id="@+id/textEditInfo"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:inputType="textMultiLine"  
+             android:minLines="3"
+             android:maxLines="3"   
+              android:gravity="top|left"    
+       />   
       
    <ImageView android:id="@+id/img01"  
          android:layout_width="wrap_content" 

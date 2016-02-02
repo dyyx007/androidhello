@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.dyyx.androidhello.dto.HttpResult;
+
 public class DyyxCommUtil {
 	
 
@@ -139,6 +141,19 @@ public class DyyxCommUtil {
 		}finally{
 			close(is);
 		}
+	}
+    
+	public static HttpResult getHttpResult(String url) {
+
+		HttpResult result = new HttpResult();
+		try {
+			String str = doHttpGet(url);
+			result.result = str;
+		} catch (Throwable e) {
+			result.exception = e;
+		}
+
+		return result;
 	}
     
     public static String join(Collection c,String sep){

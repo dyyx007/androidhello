@@ -3,6 +3,35 @@
 view.post
 NetworkUtil
 
+bitmap.getByteCount
+
+
+
+https://s.taobao.com/search?&data-value=&ajax=true&callback=&q=chenshan
+
+
+mods.itemlist.data.auctions
+pic_url
+https://s.taobao.com/search?ajax=true&callback=&q=bijini&s=44
+每页 44 第二页
+pageSize貌似没法改
+https://s.taobao.com/search?ajax=true&q=bijini&s=44
+
+Content-Type:application/json;charset=UTF-8
+
+
+mods.pager.data.
+pager: {
+status: "show",
+data: {
+pageSize: 44,
+totalPage: 100,
+currentPage: 2,
+totalCount: 446357
+},
+export: false
+},
+
 
 
 

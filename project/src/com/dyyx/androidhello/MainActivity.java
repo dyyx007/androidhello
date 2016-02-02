@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20160129-1649";
+	private static final String VERSION = "20160202-0959";
 	
 	static{
 		
