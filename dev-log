@@ -13,6 +13,39 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 
 全部 国内 国际 社会 娱乐 体育 汽车 游戏
 
+20160203
+
+ Android DiskLruCache 源码解析 硬盘缓存的绝佳方案
+ http://blog.csdn.net/lmj623565791/article/details/47251585
+
+
+Android 重难点解析 https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis
+
+Android布局优化  http://www.infoq.com/cn/articles/android-optimise-layout
+
+将一个Button 宽度设置为父容器的50%
+
+控件宽度计算 
+  Widget's width + Widget's weight*Parent's width/Parent's weightSum
+
+
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"  
+    android:layout_width= "fill_parent"  
+    android:layout_height= "fill_parent"  
+    android:background= "#ffffff"  
+    android:gravity= "center"  
+    android:orientation= "horizontal"  
+    android:weightSum= "1" ><!--1.添加android:weightSum属性-->  
+  
+    <Button  
+        android:layout_width ="0dp"<!--2.将Button的layout_width设为0dp-->  
+        android:layout_height ="wrap_content"  
+        android:layout_weight ="0.5"<!--3.确保其占用了50%的可用空间-->  
+        android:text ="@string/activity_main_click_me" />  
+  
+</LinearLayout>  
+
+
 
 
 20160202

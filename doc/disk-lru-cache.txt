@@ -1,0 +1,179 @@
+
+
+Android DiskLruCache完全解析，硬盘缓存的最佳方案
+http://blog.csdn.net/guolin_blog/article/details/28863651
+
+
+缓存位置
+/sdcard/Android/data/<application package>/cache
+
+以网易新闻为例
+/sdcard/Android/data/com.netease.newsreader.activity/cache 
+网易新闻对多种类型的数据都进行了缓存
+
+图片缓存 bitmap目录
+journal 文件 日志文件 
+https://android.googlesource.com/platform/libcore/+/jb-mr2-release/luni/src/main/java/libcore/io/DiskLruCache.java
+
+public static DiskLruCache open(File directory, int appVersion, int valueCount, long maxSize) 
+
+  手机没有SD卡，或者SD被移除了 处理
+
+public File getDiskCacheDir(Context context, String uniqueName) {  
+    String cachePath;  
+    if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())  
+            || !Environment.isExternalStorageRemovable()) {  
+        cachePath = context.getExternalCacheDir().getPath();  
+    } else {  
+        cachePath = context.getCacheDir().getPath();  
+    }  
+    return new File(cachePath + File.separator + uniqueName);  
+}  
+
+ SD卡存在或者SD可用的时候， 调用getExternalCacheDir()方法来获取缓存路径，
+ 否则就调用getCacheDir()方法来获取缓存路径。
+ 前者获取到的是 /sdcard/Android/data/<application package>/cache 这个路径，
+ 而后者获取到的是 /data/data/<application package>/cache 这个路径
+
+获取到当前应用程序的版本号
+
+public int getAppVersion(Context context) {  
+    try {  
+        PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);  
+        return info.versionCode;  
+    } catch (NameNotFoundException e) {  
+        e.printStackTrace();  
+    }  
+    return 1;  
+}  
+
+DiskLruCache mDiskLruCache = null;  
+try {  
+    File cacheDir = getDiskCacheDir(context, "bitmap");  
+    if (!cacheDir.exists()) {  
+        cacheDir.mkdirs();  
+    }  
+    mDiskLruCache = DiskLruCache.open(cacheDir, getAppVersion(context), 1, 10 * 1024 * 1024);  
+} catch (IOException e) {  
+    e.printStackTrace();  
+}  
+
+http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg
+
+
+private boolean downloadUrlToStream(String urlString, OutputStream outputStream) {  
+    HttpURLConnection urlConnection = null;  
+    BufferedOutputStream out = null;  
+    BufferedInputStream in = null;  
+    try {  
+        final URL url = new URL(urlString);  
+        urlConnection = (HttpURLConnection) url.openConnection();  
+        in = new BufferedInputStream(urlConnection.getInputStream(), 8 * 1024);  
+        out = new BufferedOutputStream(outputStream, 8 * 1024);  
+        int b;  
+        while ((b = in.read()) != -1) {  
+            out.write(b);  
+        }  
+        return true;  
+    } catch (final IOException e) {  
+        e.printStackTrace();  
+    } finally {  
+        if (urlConnection != null) {  
+            urlConnection.disconnect();  
+        }  
+        try {  
+            if (out != null) {  
+                out.close();  
+            }  
+            if (in != null) {  
+                in.close();  
+            }  
+        } catch (final IOException e) {  
+            e.printStackTrace();  
+        }  
+    }  
+    return false;  
+}  
+
+
+将图片的URL进行MD5编码
+
+
+public String hashKeyForDisk(String key) {  
+    String cacheKey;  
+    try {  
+        final MessageDigest mDigest = MessageDigest.getInstance("MD5");  
+        mDigest.update(key.getBytes());  
+        cacheKey = bytesToHexString(mDigest.digest());  
+    } catch (NoSuchAlgorithmException e) {  
+        cacheKey = String.valueOf(key.hashCode());  
+    }  
+    return cacheKey;  
+}  
+  
+private String bytesToHexString(byte[] bytes) {  
+    StringBuilder sb = new StringBuilder();  
+    for (int i = 0; i < bytes.length; i++) {  
+        String hex = Integer.toHexString(0xFF & bytes[i]);  
+        if (hex.length() == 1) {  
+            sb.append('0');  
+        }  
+        sb.append(hex);  
+    }  
+    return sb.toString();  
+}  
+
+String imageUrl = "http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg";  
+String key = hashKeyForDisk(imageUrl);  
+DiskLruCache.Editor editor = mDiskLruCache.edit(key);
+
+
+new Thread(new Runnable() {  
+    @Override  
+    public void run() {  
+        try {  
+            String imageUrl = "http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg";  
+            String key = hashKeyForDisk(imageUrl);  
+            DiskLruCache.Editor editor = mDiskLruCache.edit(key);  
+            if (editor != null) {  
+                OutputStream outputStream = editor.newOutputStream(0);  
+                if (downloadUrlToStream(imageUrl, outputStream)) {  
+                    editor.commit();  
+                } else {  
+                    editor.abort();  
+                }  
+            }  
+            mDiskLruCache.flush();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+    }  
+}).start();  
+
+
+try {  
+    String imageUrl = "http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg";  
+    String key = hashKeyForDisk(imageUrl);  
+    DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);  
+    if (snapShot != null) {  
+        InputStream is = snapShot.getInputStream(0);  
+        Bitmap bitmap = BitmapFactory.decodeStream(is);  
+        mImage.setImageBitmap(bitmap);  
+    }  
+} catch (IOException e) {  
+    e.printStackTrace();  
+}  
+
+try {  
+    String imageUrl = "http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg";    
+    String key = hashKeyForDisk(imageUrl);    
+    mDiskLruCache.remove(key);  
+} catch (IOException e) {  
+    e.printStackTrace();  
+}  
+
+ Android照片墙完整版，完美结合LruCache和DiskLruCache
+http://blog.csdn.net/guolin_blog/article/details/34093441
+
+
+
