@@ -1,20 +1,20 @@
 
 
-AndroidÊÂ¼þ´«µÝ»úÖÆ
+Androidäº‹ä»¶ä¼ é€’æœºåˆ¶
 http://www.infoq.com/cn/articles/android-event-delivery-mechanism/
 
 
 MotionEvent 
 
-°´ÏÂ£¨ACTION_DOWN£©
-ÒÆ¶¯£¨ACTION_MOVE£©
-Ì§Æð£¨ACTION_UP£©
+æŒ‰ä¸‹ï¼ˆACTION_DOWNï¼‰
+ç§»åŠ¨ï¼ˆACTION_MOVEï¼‰
+æŠ¬èµ·ï¼ˆACTION_UPï¼‰
 
 
 View  ViewGroup  
 
-UI¿Ø¼þÀýÈçButton¡¢TextView¼Ì³ÐÓÚView
-²¼¾Ö¿Ø¼þÀýÈçRelativeLayout¡¢ÈÝÆ÷¿Ø¼þÀýÈçListView ¼Ì³ÐÓÚViewGroup
+UIæŽ§ä»¶ä¾‹å¦‚Buttonã€TextViewç»§æ‰¿äºŽView
+å¸ƒå±€æŽ§ä»¶ä¾‹å¦‚RelativeLayoutã€å®¹å™¨æŽ§ä»¶ä¾‹å¦‚ListView ç»§æ‰¿äºŽViewGroup
 
 
 View.java
@@ -28,32 +28,37 @@ public boolean dispatchTouchEvent(MotionEvent event)
 public boolean onTouchEvent(MotionEvent event) 
 public boolean onInterceptTouchEvent(MotionEvent event)
 
-ÊÂ¼þ´«µÝ Ïû·Ñ À¹½Ø
+äº‹ä»¶ä¼ é€’ æ¶ˆè´¹ æ‹¦æˆª
 
-dispatchTouchEvent·½·¨ÓÃÓÚÊÂ¼þµÄ·Ö·¢£¬AndroidÖÐËùÓÐµÄÊÂ¼þ¶¼±ØÐë¾­¹ýÕâ¸ö·½·¨µÄ·Ö·¢£¬
-È»ºó¾ö¶¨ÊÇ×ÔÉíÏû·Ñµ±Ç°ÊÂ¼þ»¹ÊÇ¼ÌÐøÍùÏÂ·Ö·¢¸ø×Ó¿Ø¼þ´¦Àí¡£·µ»Øtrue±íÊ¾²»¼ÌÐø·Ö·¢£¬ÊÂ¼þÃ»ÓÐ±»Ïû·Ñ¡£
-·µ»ØfalseÔò¼ÌÐøÍùÏÂ·Ö·¢£¬Èç¹ûÊÇViewGroupÔò·Ö·¢¸øonInterceptTouchEvent½øÐÐÅÐ¶ÏÊÇ·ñÀ¹½Ø¸ÃÊÂ¼þ¡£
+dispatchTouchEventæ–¹æ³•ç”¨äºŽäº‹ä»¶çš„åˆ†å‘ï¼ŒAndroidä¸­æ‰€æœ‰çš„äº‹ä»¶éƒ½å¿…é¡»ç»è¿‡è¿™ä¸ªæ–¹æ³•çš„åˆ†å‘ï¼Œ
+ç„¶åŽå†³å®šæ˜¯è‡ªèº«æ¶ˆè´¹å½“å‰äº‹ä»¶è¿˜æ˜¯ç»§ç»­å¾€ä¸‹åˆ†å‘ç»™å­æŽ§ä»¶å¤„ç†ã€‚è¿”å›žtrueè¡¨ç¤ºä¸ç»§ç»­åˆ†å‘ï¼Œäº‹ä»¶æ²¡æœ‰è¢«æ¶ˆè´¹ã€‚
+è¿”å›žfalseåˆ™ç»§ç»­å¾€ä¸‹åˆ†å‘ï¼Œå¦‚æžœæ˜¯ViewGroupåˆ™åˆ†å‘ç»™onInterceptTouchEventè¿›è¡Œåˆ¤æ–­æ˜¯å¦æ‹¦æˆªè¯¥äº‹ä»¶ã€‚
 
-onTouchEvent·½·¨ÓÃÓÚÊÂ¼þµÄ´¦Àí£¬·µ»Øtrue±íÊ¾Ïû·Ñ´¦Àíµ±Ç°ÊÂ¼þ£¬·µ»ØfalseÔò²»´¦Àí£¬½»¸ø×Ó¿Ø¼þ½øÐÐ¼ÌÐø·Ö·¢¡£
+onTouchEventæ–¹æ³•ç”¨äºŽäº‹ä»¶çš„å¤„ç†ï¼Œè¿”å›žtrueè¡¨ç¤ºæ¶ˆè´¹å¤„ç†å½“å‰äº‹ä»¶ï¼Œè¿”å›žfalseåˆ™ä¸å¤„ç†ï¼Œäº¤ç»™å­æŽ§ä»¶è¿›è¡Œç»§ç»­åˆ†å‘ã€‚
 
 
-onInterceptTouchEvent  ViewGroup²ÅÓÐ £¬ViewÖÐÃ»ÓÐ£¬¸ºÔðÊÂ¼þµÄÀ¹½Ø£¬
-·µ»ØtrueµÄÊ±ºò±íÊ¾À¹½Øµ±Ç°ÊÂ¼þ£¬²»¼ÌÐøÍùÏÂ·Ö·¢£¬½»¸ø×ÔÉíµÄonTouchEvent½øÐÐ´¦Àí¡£·µ»ØfalseÔò²»À¹½Ø£¬¼ÌÐøÍùÏÂ´«¡£
+onInterceptTouchEvent  ViewGroupæ‰æœ‰ ï¼ŒViewä¸­æ²¡æœ‰ï¼Œè´Ÿè´£äº‹ä»¶çš„æ‹¦æˆªï¼Œ
+è¿”å›žtrueçš„æ—¶å€™è¡¨ç¤ºæ‹¦æˆªå½“å‰äº‹ä»¶ï¼Œä¸ç»§ç»­å¾€ä¸‹åˆ†å‘ï¼Œäº¤ç»™è‡ªèº«çš„onTouchEventè¿›è¡Œå¤„ç†ã€‚è¿”å›žfalseåˆ™ä¸æ‹¦æˆªï¼Œç»§ç»­å¾€ä¸‹ä¼ ã€‚
 
 
 http://blog.csdn.net/awangyunke/article/details/22047987
 
-1£¬ViewGroupÍ¨¹ýdispatchTouchEvent·½·¨´«µÝ¸øinterceptTouchEvent£º
-    £¨1£©Èç¹û·µ»Øtrue £¬Ôò½»¸øÕâ¸öViewGroupµÄonTouchEvent´¦Àí¡£
-    £¨2£©Èç¹û·µ»Øfalse£¬Ôò½»¸ø×ÓViewµÄ dispatchTouchEvent·½·¨´¦Àí¡£
+1ï¼ŒViewGroupé€šè¿‡dispatchTouchEventæ–¹æ³•ä¼ é€’ç»™interceptTouchEventï¼š
+    ï¼ˆ1ï¼‰å¦‚æžœè¿”å›žtrue ï¼Œåˆ™äº¤ç»™è¿™ä¸ªViewGroupçš„onTouchEventå¤„ç†ã€‚
+    ï¼ˆ2ï¼‰å¦‚æžœè¿”å›žfalseï¼Œåˆ™äº¤ç»™å­Viewçš„ dispatchTouchEventæ–¹æ³•å¤„ç†ã€‚
 
-2£¬ÊÂ¼þ´«µÝµ½×Óview µÄ dispatchTouchEvent·½·¨ÖÐ£¬Í¨¹ý·½·¨´«µÝµ½µ±Ç°ViewµÄonTouchEvent·½·¨ÖÐ£º
+2ï¼Œäº‹ä»¶ä¼ é€’åˆ°å­view çš„ dispatchTouchEventæ–¹æ³•ä¸­ï¼Œé€šè¿‡æ–¹æ³•ä¼ é€’åˆ°å½“å‰Viewçš„onTouchEventæ–¹æ³•ä¸­ï¼š
 
-    £¨1£©Èç¹û·µ»Øtrue£¬ÄÇÃ´Õâ¸öÊÂ¼þ¾Í»áÖ¹ÓÚ¸Ãview¡£
-    £¨2£©Èç¹û·µ»Ø false £¬ÄÇÃ´Õâ¸öÊÂ¼þ»á´ÓÕâ¸ö×Óview ÍùÉÏ´«µÝ£¬¶øÇÒ¶¼ÊÇ´«µÝµ½¸¸ViewµÄonTouchEvent À´½ÓÊÕ¡£
+    ï¼ˆ1ï¼‰å¦‚æžœè¿”å›žtrueï¼Œé‚£ä¹ˆè¿™ä¸ªäº‹ä»¶å°±ä¼šæ­¢äºŽè¯¥viewã€‚
+    ï¼ˆ2ï¼‰å¦‚æžœè¿”å›ž false ï¼Œé‚£ä¹ˆè¿™ä¸ªäº‹ä»¶ä¼šä»Žè¿™ä¸ªå­view å¾€ä¸Šä¼ é€’ï¼Œè€Œä¸”éƒ½æ˜¯ä¼ é€’åˆ°çˆ¶Viewçš„onTouchEvent æ¥æŽ¥æ”¶ã€‚
 
-    £¨3£©Èç¹û´«µÝµ½ViewGroupµÄ onTouchEvent Ò²·µ»Ø false µÄ»°£¬Ôò¼ÌÐø´«µÝµ½ActivityµÄonTouchEventÖÐ£¬Èç¹û»¹ÊÇfalse,ÔòÕâ¸öÊÂ¼þ¾Í»á¡°ÏûÊ§¡°£»
-         ÊÂ¼þÏòÉÏ´«µÝµ½ÖÐ¼äµÄÈÎºÎonTouchEvent·½·¨ÖÐ£¬Èç¹û·µ»Øtrue£¬ÔòÊÂ¼þ±»Ïû·Ñµô£¬²»»áÔÙ´«µÝ¡£
+    ï¼ˆ3ï¼‰å¦‚æžœä¼ é€’åˆ°ViewGroupçš„ onTouchEvent ä¹Ÿè¿”å›ž false çš„è¯ï¼Œåˆ™ç»§ç»­ä¼ é€’åˆ°Activityçš„onTouchEventä¸­ï¼Œå¦‚æžœè¿˜æ˜¯false,åˆ™è¿™ä¸ªäº‹ä»¶å°±ä¼šâ€œæ¶ˆå¤±â€œï¼›
+         äº‹ä»¶å‘ä¸Šä¼ é€’åˆ°ä¸­é—´çš„ä»»ä½•onTouchEventæ–¹æ³•ä¸­ï¼Œå¦‚æžœè¿”å›žtrueï¼Œåˆ™äº‹ä»¶è¢«æ¶ˆè´¹æŽ‰ï¼Œä¸ä¼šå†ä¼ é€’ã€‚
+
+
+Androidä¸­onTouchä¸ŽonClickäº‹ä»¶çš„å…³ç³»
+http://blog.csdn.net/mydreamongo/article/details/30465613
+
 
 
 
