@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.dyyx.androidhello.base.BaseActivity;
 import com.dyyx.androidhello.util.ContentProviderUtil;
 import com.dyyx.androidhello.util.DyyxCommUtil;
+import com.dyyx.androidhello.util.EventUtil;
 
 public class CommTestActivity extends BaseActivity {
 
@@ -53,6 +54,18 @@ public class CommTestActivity extends BaseActivity {
 			
 
 			return;
+		}
+		if (vid == R.id.btnEventLogs) {
+			
+			textEditResult.setText(EventUtil.getLogs());
+			return;
+			
+		}
+		
+		if(vid == R.id.btnClearEventLogs){
+			EventUtil.clear();
+			textEditResult.setText("event logs clear done,"+DyyxCommUtil.getNowDateString());
+			return ;
 		}
 		
 	}

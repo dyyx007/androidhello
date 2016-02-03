@@ -89,7 +89,7 @@
        <activity android:name="com.dyyx.androidhello.DBActivity"/>
        <activity android:name="com.dyyx.androidhello.CommTestActivity"/>   
        <activity android:name="com.dyyx.androidhello.ImgActivity"/>        
-         
+       <activity android:name="com.dyyx.androidhello.EventActivity"/> 
     
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>

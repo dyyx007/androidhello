@@ -15,6 +15,12 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 
 20160203
 
+ 水平分割线  
+   <View android:layout_height="3dp"
+          android:layout_width="fill_parent"
+          android:background="#0000ff"/>
+
+
 Android事件传递机制 http://www.infoq.com/cn/articles/android-event-delivery-mechanism/
 
 Android 实战美女拼图游戏 你能坚持到第几关 

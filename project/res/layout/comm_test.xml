@@ -45,6 +45,20 @@
             android:onClick="clickHandle"
             />
          
+             <Button
+            android:id="@+id/btnEventLogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EventLogs" 
+            android:onClick="clickHandle"
+            />
+             <Button
+            android:id="@+id/btnClearEventLogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ClearEventLogs" 
+            android:onClick="clickHandle"
+            />
           
         
       </LinearLayout>
