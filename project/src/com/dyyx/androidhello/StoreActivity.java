@@ -62,9 +62,14 @@ public class StoreActivity extends BaseActivity {
 			Context context = HelloApp.getContext();
 
 			StringBuilder sb = new StringBuilder();
-			sb.append("cacheDir=" + context.getCacheDir());
-			sb.append("\n dbpath=" + context.getDatabasePath("dyyx"));
+			sb.append("cacheDir=" + context.getCacheDir());		
 			sb.append("\n filesDir=" + context.getFilesDir());
+			
+			sb.append("\ncontext.getExternalCacheDir()=" + context.getExternalCacheDir());		
+			sb.append("\n context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)=" + context.getExternalFilesDir(Environment.DIRECTORY_MUSIC));
+			
+			
+			sb.append("\n dbpath=" + context.getDatabasePath("dyyx"));
 			sb.append("\n filesDirFullPath=" + context.getFilesDir().getAbsolutePath());
 
 			sb.append("\n packageCodePath=" + context.getPackageCodePath());
@@ -73,6 +78,8 @@ public class StoreActivity extends BaseActivity {
 			
 			sb.append("\n Environment.getDataDirectory()=" + Environment.getDataDirectory());
 			
+
+			
 			sb.append("\n Environment.getDownloadCacheDirectory()=" + Environment.getDownloadCacheDirectory());
 			sb.append("\n Environment.getExternalStorageDirectory()=" + Environment.getExternalStorageDirectory());
 			sb.append("\n Environment.getRootDirectory()=" + Environment.getRootDirectory());
@@ -80,7 +87,7 @@ public class StoreActivity extends BaseActivity {
 			sb.append("\n Environment.getExternalStorageState()=" + Environment.getExternalStorageState());
 			sb.append("\n Environment.getExternalStorageDirectory().getAbsolutePath()()=" +Environment.getExternalStorageDirectory().getAbsolutePath());
 
-			
+
 			//Environment.getExternalStoragePublicDirectory(type)
 			textEditResult.setText(sb.toString());
 
