@@ -2,11 +2,18 @@
 干货集中营 API  http://gank.io/api
 https://git.oschina.net/dyyx
 
+sogou图片接口
+http://pic.sogou.com/pics/channel/getAllRecomPicByTag.jsp?category=%E7%BE%8E%E5%A5%B3&tag=%E5%B0%A4%E7%89%A9&start=30&len=15
 
+category=美女&tag=尤物
+ 尤物 时尚 女神 甜素纯 有沟必火 甜美 萝莉 清纯 泳装 唯美 粉红菇凉 居家小妹 风情
+学生妹 
 
 20160202
 
 如何播放视频
+gif 显示 http://blog.sina.com.cn/s/blog_73c5cfbe0101b6w5.html
+
 
 
 
@@ -54,6 +61,28 @@ android:largeHeap="true"
   // if it has specified  android:largeHeap="true"  in its manifest
   int largeHeapSize = manager.getLargeMemoryClass(); 
   
+开启大内存之后  杠杠的
+heapSize=96 largeHeapSize=256  maxMemory=256
+
+Android最佳性能实践(一)——合理管理内存
+http://blog.csdn.net/guolin_blog/article/details/42238627
+
+
+内存分析工具 Eclipse Memory Analyzer（MAT）
+http://www.eclipse.org/mat/downloads.php
+
+
+DDMS  devices 
+dump hprof file
+HPROF文件从Dalvik格式转换成J2SE格式  
+hprof-conv工具 hprof-conv dump.hprof converted-dump.hprof  
+
+Histogram 类名  实例个数 
+ 实例右键  Path to GC Roots -> exclude weak references
+
+
+布局优化  布局重用 include  merge
+
 
 
 
@@ -77,6 +106,9 @@ pageSize貌似没法改
 https://s.taobao.com/search?ajax=true&q=bijini&s=44
 
 Content-Type:application/json;charset=UTF-8
+https://s.taobao.com/search?ajax=true&q=bijini&s=88
+第三页数据
+
 
 
 mods.pager.data.
