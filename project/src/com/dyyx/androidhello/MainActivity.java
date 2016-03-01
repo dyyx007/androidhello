@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20160203-1733";
+	private static final String VERSION = "20160301-1107";
 	
 	static{
 		
@@ -63,6 +63,7 @@ public class MainActivity extends BaseActivity {
 		activityMap.put("commtest",CommTestActivity.class);
 		activityMap.put("img",ImgActivity.class);
 		activityMap.put("event",EventActivity.class);
+		activityMap.put("scroll",ScrollActivity.class);
 		
 	}
 	
