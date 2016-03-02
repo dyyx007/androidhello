@@ -73,6 +73,8 @@ public class ScrollerLayout extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 View childView = getChildAt(i);
                 // 为ScrollerLayout中的每一个子控件在水平方向上进行布局
+                //  void layout(int l, int t, int r, int b)
+                // letf top  right bottom
                 childView.layout(i * childView.getMeasuredWidth(), 0, (i + 1) * childView.getMeasuredWidth(), childView.getMeasuredHeight());
             }
             // 初始化左右边界值
@@ -98,6 +100,8 @@ public class ScrollerLayout extends ViewGroup {
                 }
                 break;
         }
+        // Return true to steal motion events from the children and have
+        // them dispatched to this ViewGroup through onTouchEvent()
         return super.onInterceptTouchEvent(ev);
     }
 
@@ -126,6 +130,7 @@ public class ScrollerLayout extends ViewGroup {
                 invalidate();
                 break;
         }
+        // True if the event was handled, false otherwise
         return super.onTouchEvent(event);
     }
 

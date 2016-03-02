@@ -16,6 +16,14 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 
 20160302
 
+《Android深入透析》之 浅析Activity启动模式
+http://www.cnblogs.com/duoduohuakai/p/3973094.html
+Android深入透析 系列
+
+
+
+
+
  查看安卓支持库的源码
 androidhello/project/libs
 android-support-v4.jar
@@ -23,7 +31,11 @@ android-support-v4.jar
 src=D:\dugang\soft\adt-bundle-windows-x86_64-20140702\sdk\extras\android\support\v4\src
 
 
+Android View的onTouchEvent和OnTouch区别
+http://blog.csdn.net/huiguixian/article/details/22193977
 
+Android:30分钟弄明白Touch事件分发机制
+http://www.cnblogs.com/linjzong/p/4191891.html
 
 
 
