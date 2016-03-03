@@ -14,6 +14,57 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 全部 国内 国际 社会 娱乐 体育 汽车 游戏
 
 
+20160303
+
+ onClick监听和onTouch监听
+View.OnClickListener
+  public void onClick(View v)
+View.OnTouchListener
+  public boolean onTouch(View v, MotionEvent event) {
+	// code here
+	return false;
+  }
+
+件传递的入口是View的dispatchTouchEvent()
+
+dispatchTouchEvent > onTouch监听 > onTouchEvent > OnClick监听 
+
+viewgroup   onInterceptTouchEvent 是否拦截事件 不下发给子控件
+
+事件被拦击或被处理(消费)
+
+
+Caused by: java.lang.NoSuchMethodError: android.app.AlertDialog$Builder.setView
+   at com.dyyx.androidhello.GamePintuActivity.clickHandle(GamePintuActivity.java:54)
+
+   小米 方向锁定 屏幕旋转不会触发相应的事件？
+Android横竖屏切换小结 http://www.cnblogs.com/franksunny/p/3714442.html
+
+android:screenOrientation
+landscape:横屏显示（宽比高要长）
+portrait:竖屏显示(高比宽要长)
+
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+
+
+
+	
+			LayoutInflater lf = LayoutInflater.from(this);
+			View viewtmp = lf.inflate(R.layout.game_pintu_pic, null);
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			//builder.setTitle("image");
+			//builder.setMessage("");
+			builder.setCancelable(true);
+			builder.setView(viewtmp);
+			// Caused by: java.lang.NoSuchMethodError: android.app.AlertDialog$Builder.setView
+			//builder.setView(R.layout.game_pintu_pic);
+			builder.create().show();
+ AlertDialog setCancelable 为true 触摸对话框以外的地方会隐藏
+
+
+
+
 20160302
 
 《Android深入透析》之 浅析Activity启动模式

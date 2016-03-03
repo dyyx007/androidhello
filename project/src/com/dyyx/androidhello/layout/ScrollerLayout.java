@@ -133,6 +133,15 @@ public class ScrollerLayout extends ViewGroup {
         // True if the event was handled, false otherwise
         return super.onTouchEvent(event);
     }
+    
+    // View.OnClickListener
+    
+    //  View.OnTouchListener
+    
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+    	return super.dispatchTouchEvent(ev);
+    }
 
     @Override
     public void computeScroll() {
