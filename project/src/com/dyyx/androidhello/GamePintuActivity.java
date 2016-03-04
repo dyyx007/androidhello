@@ -27,16 +27,7 @@ public class GamePintuActivity extends Activity implements OnLongClickListener{
 	@Override
 	public boolean onLongClick(View v) {
 		// 长按事件貌似没触发
-		//LayoutInflater lf = LayoutInflater.from(this);
-		//View view = lf.inflate(R.layout.game_pintu_pic, null);
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("image");
-		//builder.setMessage("");
-		builder.setCancelable(true);
-		//builder.setView(view);
-		builder.setView(R.layout.game_pintu_pic);
-		builder.create().show();
+		showImgDialog();
 		
 		return true;
 	}
@@ -45,20 +36,24 @@ public class GamePintuActivity extends Activity implements OnLongClickListener{
 		int vid = view.getId();
 
 		if (vid == R.id.btnShowImg) {
-			
-			LayoutInflater lf = LayoutInflater.from(this);
-			View viewtmp = lf.inflate(R.layout.game_pintu_pic, null);
-			
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			//builder.setTitle("image");
-			//builder.setMessage("");
-			builder.setCancelable(true);
-			builder.setView(viewtmp);
-			// Caused by: java.lang.NoSuchMethodError: android.app.AlertDialog$Builder.setView
-			//builder.setView(R.layout.game_pintu_pic);
-			builder.create().show();
-			
+			showImgDialog();	
 		}
+		
+	}
+	
+	private void showImgDialog(){
+		
+		LayoutInflater lf = LayoutInflater.from(this);
+		View viewtmp = lf.inflate(R.layout.game_pintu_pic, null);
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		//builder.setTitle("image");
+		//builder.setMessage("");
+		builder.setCancelable(true);
+		builder.setView(viewtmp);
+		// Caused by: java.lang.NoSuchMethodError: android.app.AlertDialog$Builder.setView
+		//builder.setView(R.layout.game_pintu_pic);
+		builder.create().show();
 		
 	}
 

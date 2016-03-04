@@ -94,6 +94,9 @@
        <activity android:name="com.dyyx.androidhello.ScrollLayoutActivity"/> 
        <activity android:name="com.dyyx.androidhello.GamePintuActivity"/> 
     
+       <activity android:name="com.dyyx.androidhello.ToolBarActivity"/> 
+       
+       
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
 	     <intent-filter>
 		 <action android:name="com.dyyx.androidhello.service.MusicPlayerService" />

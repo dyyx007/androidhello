@@ -1,0 +1,19 @@
+
+android视图绘制流程
+
+
+Activity中UI框架基本概念
+http://www.cnblogs.com/bastard/archive/2012/04/10/2440577.html
+
+Android中View绘制流程以及invalidate()等相关方法分析
+http://blog.csdn.net/qinjuning/article/details/7110211
+
+Android View 绘制流程
+http://files.cnblogs.com/files/franksunny/AndroidView%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B.pdf
+
+
+Android View绘制流程
+http://blog.csdn.net/wangjinyu501/article/details/9008271
+
+
+

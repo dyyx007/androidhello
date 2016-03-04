@@ -40,6 +40,9 @@
     <item>Scroll</item> 
     <item>ScrollLayout</item>
     <item>GamePintu</item>
+    <item>ToolBar</item>
+    
+    
     
 </string-array> 
 

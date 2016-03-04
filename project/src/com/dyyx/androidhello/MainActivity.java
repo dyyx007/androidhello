@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
 	
 	private static Map<String,Class> activityMap = new HashMap<String,Class>();
 	
-	private static final String VERSION = "20160303-1715";
+	private static final String VERSION = "20160304-1115";
 	
 	static{
 		
@@ -68,6 +68,8 @@ public class MainActivity extends BaseActivity {
 		
 		
 		activityMap.put("gamepintu",GamePintuActivity.class);
+		activityMap.put("toolbar",ToolBarActivity.class);
+		
 		
 	}
 	

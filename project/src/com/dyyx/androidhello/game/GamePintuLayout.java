@@ -198,6 +198,7 @@ public class GamePintuLayout extends RelativeLayout implements OnClickListener {
 			mSecond = (ImageView) v;
 			exchangeView();
 		}
+	
 
 	}
 

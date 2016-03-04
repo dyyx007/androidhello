@@ -14,6 +14,35 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 全部 国内 国际 社会 娱乐 体育 汽车 游戏
 
 
+20160304
+
+   
+  ImageView
+  setColorFilter(Color.parseColor("#55FF0000"))
+ 滤镜 
+Color.parseColor  
+public static int parseColor(String colorString)
+#RRGGBB
+#AARRGGBB
+
+动画设置 
+
+自定义控件/布局
+ 
+第一行代码 p129
+include重用布局 <include layout="@layout/xxx" />
+但这样无法重用 代码
+
+
+
+
+
+
+ 
+
+
+
+
 20160303
 
  onClick监听和onTouch监听
