@@ -95,6 +95,8 @@
        <activity android:name="com.dyyx.androidhello.GamePintuActivity"/> 
     
        <activity android:name="com.dyyx.androidhello.ToolBarActivity"/> 
+       <activity android:name="com.dyyx.androidhello.MyViewActivity"/> 
+       
        
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">

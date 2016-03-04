@@ -1,0 +1,16 @@
+
+Android View绘制流程
+
+
+decor view
+
+decor 装饰
+
+SDK tools hierarchyviewer.bat  查看 ViewTree
+
+
+
+
+
+
+

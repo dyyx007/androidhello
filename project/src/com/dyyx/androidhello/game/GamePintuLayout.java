@@ -216,6 +216,7 @@ public class GamePintuLayout extends RelativeLayout implements OnClickListener {
 	 */
 	private void exchangeView() {
 		mFirst.setColorFilter(null);
+		
 		setUpAnimLayout();
 		// Ìí¼ÓFirstView
 		ImageView first = new ImageView(getContext());

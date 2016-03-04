@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.dyyx.androidhello"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+  <com.dyyx.androidhello.myview.MyView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        
+        custom:text="5678"
+        custom:textSize="40sp" 
+        custom:textColor="#ff0000"    
+        />
+    <View android:layout_height="3dp"
+          android:layout_width="fill_parent"
+          android:background="#0000ff"/>
+    
+      <com.dyyx.androidhello.myview.MyView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        
+        custom:text="7890999"
+        custom:textSize="60sp" 
+        custom:textColor="#ff0000"    
+        />
+      
+       <View android:layout_height="3dp"
+          android:layout_width="fill_parent"
+          android:background="#0000ff"/>
+       
+         <com.dyyx.androidhello.myview.MyView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        
+        custom:text="123"
+        custom:textSize="90sp" 
+        custom:textColor="#ff0000"    
+        />
+      
+
+</LinearLayout>
