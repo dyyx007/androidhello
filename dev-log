@@ -119,10 +119,13 @@ Caused by: java.lang.NoSuchMethodError: android.app.AlertDialog$Builder.setView
 
    小米 方向锁定 屏幕旋转不会触发相应的事件？
 Android横竖屏切换小结 http://www.cnblogs.com/franksunny/p/3714442.html
-
+Activity节点
 android:screenOrientation
 landscape:横屏显示（宽比高要长）
 portrait:竖屏显示(高比宽要长)
+
+ <activity android:name="com.dyyx.androidhello.GamePintuActivity"  android:screenOrientation="portrait"  /> 
+  
 
 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
 
