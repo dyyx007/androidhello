@@ -125,6 +125,8 @@ landscape:横屏显示（宽比高要长）
 portrait:竖屏显示(高比宽要长)
 
  <activity android:name="com.dyyx.androidhello.GamePintuActivity"  android:screenOrientation="portrait"  /> 
+ 拼图强制竖屏
+
   
 
 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
