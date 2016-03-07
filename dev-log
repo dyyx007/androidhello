@@ -19,15 +19,20 @@ IPC机制，Binder和匿名共享内存等
 四大组件启动，工作原理
 View系统，绘制原理，事件分发
 动画框架，原理
-多线程机制，消息机制 AsyncTask，Thread/Handler
+多线程机制，消息机制 AsyncTask，Thread/Handler/Looper
 系统启动过程，system_server启动过程
 Window系统，Window创建过程
 资源管理系统，资源加载机制等
+DexClassLoader机制 
+Activity的启动流程，ActivityManagerService，PackageManagerService等如何工作 
+android中的设计模式 
+NDK
 
 
 Android 面试精华题目总结
 http://blog.csdn.net/lmj623565791/article/details/24015867
 
+一些知识点整理 https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis
 
 jvm dvm art 区别
 ./doc/jvm-dvm-art.txt
@@ -45,6 +50,8 @@ jvm dvm art 区别
 
 20160307
 
+
+android.app.ContextImpl 源码哪里找
 
 
 

@@ -27,6 +27,7 @@ public class HelloApp extends Application {
 		super.onCreate();
 
 		context = getApplicationContext();
+		//context = this;  
 
 		LogUtil.log(TAG, "HelloApp.onCreate");
 
