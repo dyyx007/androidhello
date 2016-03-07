@@ -29,6 +29,11 @@ Android 面试精华题目总结
 http://blog.csdn.net/lmj623565791/article/details/24015867
 
 
+jvm dvm art 区别
+./doc/jvm-dvm-art.txt
+
+
+
 
 //////////////////////////////////
 
@@ -39,6 +44,8 @@ http://blog.csdn.net/lmj623565791/article/details/24015867
 
 
 20160307
+
+
 
 
 
@@ -71,6 +78,24 @@ Configuration config = getResources().getConfiguration();
 				sb.append(" to portrait ");
 
 			}
+
+
+
+android:versionCode和android:versionName 用途
+
+android:versionCode:主要是用于版本升级所用，是INT类型的，第一个版本定义为1，以后递增，这样只要判断该值就能确定是否需要升级，该值不显示给用户。
+android:versionName:这个是我们常说明的版本号，由三部分组成<major>.<minor>.<point>,该值是个字符串，可以显示给用户。
+
+如何读取版本号
+
+1、读取manifest.xml
+
+PackageManager pm = context.getPackageManager();//context为当前Activity上下文 
+PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+version = pi.versionName;
+
+2、在里面定义 android:versionName="@string/app_versionName" 
+然后在 res/values/strings.xml 里定义一个同名 string item ：<string name="app_versionName">1.1</string>
 
 
 
