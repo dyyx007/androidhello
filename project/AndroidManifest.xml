@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dyyx.androidhello"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -96,7 +96,7 @@
     
        <activity android:name="com.dyyx.androidhello.ToolBarActivity"/> 
        <activity android:name="com.dyyx.androidhello.MyViewActivity"/> 
-       
+       <activity android:name="com.dyyx.androidhello.ConfigActivity"   android:configChanges="orientation|keyboard"  /> 
        
        
        <service android:enabled="true" android:name="com.dyyx.androidhello.service.MusicPlayerService">
@@ -160,6 +160,8 @@
     
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />  
+    
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
 
     
 </manifest>

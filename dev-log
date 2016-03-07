@@ -13,6 +13,67 @@ sogou 图片新闻接口 http://pic.sogou.com/pics/channel/getNewsPic.jsp?catego
 
 全部 国内 国际 社会 娱乐 体育 汽车 游戏
 
+进阶 
+
+IPC机制，Binder和匿名共享内存等
+四大组件启动，工作原理
+View系统，绘制原理，事件分发
+动画框架，原理
+多线程机制，消息机制 AsyncTask，Thread/Handler
+系统启动过程，system_server启动过程
+Window系统，Window创建过程
+资源管理系统，资源加载机制等
+
+
+Android 面试精华题目总结
+http://blog.csdn.net/lmj623565791/article/details/24015867
+
+
+
+//////////////////////////////////
+
+
+
+
+
+
+
+20160307
+
+
+
+Android横竖屏切换小结 http://www.cnblogs.com/franksunny/p/3714442.html
+Android 监听屏幕旋转 onConfigurationChanged http://blog.csdn.net/zwq1457/article/details/7972472
+
+ActivityInfo
+  public static final int SCREEN_ORIENTATION_LANDSCAPE = 0;
+  public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
+
+Configuration
+ public static final int ORIENTATION_PORTRAIT = 1;
+ public static final int ORIENTATION_LANDSCAPE = 2;
+
+
+  
+Configuration config = getResources().getConfiguration(); 
+			int orientation = config.orientation;
+			
+			sb.append(", change screen at "+DyyxCommUtil.getNowDateString());
+			
+			if(orientation == Configuration.ORIENTATION_PORTRAIT){
+				this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+				
+				sb.append(" to landscape ");
+			}
+			
+			if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+				this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+				sb.append(" to portrait ");
+
+			}
+
+
+
 
 20160304
 
